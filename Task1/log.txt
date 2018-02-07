@@ -1,0 +1,11 @@
+commit 769518d63d6e4756399f55b70eed2605d24cc6a8 (HEAD -> master, origin/master)
+Author: Dmitry_Kurch <dmitry.kurch@gmail.com>
+Date:   Wed Feb 7 14:52:40 2018 +0300
+
+    Trying to make .ginignore work
+
+commit fb84ce82a94c259192285673aa0d746c9e47e2d1
+Author: Dmitry_Kurch <dmitry.kurch@gmail.com>
+Date:   Wed Feb 7 08:39:42 2018 +0300
+
+    My first commit!
