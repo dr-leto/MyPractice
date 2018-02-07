@@ -1,0 +1,8 @@
+new file:   ../.gitignore
+        new file:   .idea/misc.xml
+        new file:   .idea/modules.xml
+        new file:   .idea/workspace.xml
+        new file:   Task1.iml
+        new file:   out/production/Task1/Test.class
+        new file:   src/Test.java
+        new file:   status.txt

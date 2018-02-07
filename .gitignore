@@ -1,0 +1,4 @@
+#no trash files, only src
+.idea/
+out/
+*.iml
