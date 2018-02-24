@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    position: relative;
+    margin-top:4.4%;
+    padding:1%;
+    background-color:aliceblue;
+}
+
+.hat{
+    position:fixed;
+    z-index:2;
+    width:82%;
+    top:0;
+    height: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color:white;
+    border-bottom: solid 1px;
+}
+
+.hatElement{
+    margin: 1%;
+    padding: 1%;
+    width: 21%;
+    text-align: center;
+    float:left;
+}
+
+.filter{
+    position:fixed;
+    z-index:3;
+    background-color:white;
+    left:30%;
+    width: 20%;
+    border: solid 2px;
+}
+
+.filterElement{
+    border-bottom: solid 1px;
+    padding: 3px;
+}
+
+.buttonFilter{
+    padding: 3px;
+    text-align:center;
+}
+.post{
+    background-color:white;
+    margin: 5%;
+    height:50%;
+    width:50%;
+}
+
+.namePostElement{
+    text-align:left;
+    margin :3px;
+}
+
+.descriptionPostElement{
+    margin: 3px;
+    float:left;
+}
+
+.dataPostElement{
+    margin:3px;
+    float:right;
+}
+
+.image{
+    height: 100%;
+    width:100%;
+}
+
+.like{
+    float:left;
+    margin-right:5px;
+}
+
+.buttonGroup{
+    float: right;
+}
+
+.hashtag{
+    float: left;
+}
+
+.footer{
+    position:relative;
+    border-top:solid 1px;
+    background-color:gainsboro;
+    text-align:center;
+}
+
+.footerElement{
+    margin:3px;
+}
