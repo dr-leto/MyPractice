@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
     <script defer src="fontawesome-free-5.0.6/on-server/js/fontawesome-all.js"></script>
     <title>Travel&Share</title>
 </head>
@@ -13,26 +16,34 @@
 <div class = "hat">
     <div class = "hatElement">
         <header>
-            Travel&Share
+            <p class = "header">Travel&Share<p>
         </header>
     </div>
     <nav>
         <div class = "hatElement">
-            <button>
+            <button class = "headButton">
                 Filter by...
             </button>
         </div>
         <div class = "hatElement">
-            <i class="far fa-image"></i>
-            <button>
-                Add photo
-            </button>
+            <div class = "double">
+                <i class="far fa-image"></i>
+            </div>
+            <div class = "double">
+                <button class = "headButton">
+                    Add photo
+                </button>
+            </div>
         </div>
         <div class = "hatElement">
-            Bear_Grylls
-            <button>
-                Log out
-            </button>
+            <div class = "double">
+                <p class = "name"> Bear_Grylls</p>
+            </div>
+            <div class = "double">
+                <button class=" headButton">
+                    Log out
+                </button>
+            </div>
         </div>
     </nav>
     <div style="clear:both"></div>
@@ -60,43 +71,51 @@
 
 <div class = "main">
 
-    <div align="center">
-        <div class = "post">
-            <div class = "postElement">
-                <div class = "namePostElement">Bear_Grylls</div>
-                <div class = "descriptionPostElement">Me and my morning wood</div>
-                <div class = "dataPostElement">22.02.2018</div>
-            </div>
-            <div style="clear:both"></div>
-            <div class = "postElement">
-                <img src = "images/Bear.jpg" alt = "Bear_Grylls" class = "image">
-            </div>
-            <div class = "postElement">
-                <div class = "like">
-                    <i class="fas fa-heart"></i>
-                    6
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "postElement">
+                        <div class = "namePostElement">Bear_Grylls</div>
+                        <div class = "descriptionPostElement">Me and my morning wood</div>
+                        <div class = "dataPostElement">22.02.2018</div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class = "postElement">
+                        <img src = "images/Bear.jpg" alt = "Bear_Grylls" class = "image">
+                    </div>
+                    <div class = "postElement">
+                        <div class = "like">
+                            <i class="fas fa-heart"></i>
+                            6
+                        </div>
+                        <div class = "buttonGroup">
+                            <button>
+                                edit
+                            </button>
+                            <button>
+                                delete
+                            </button>
+                        </div>
+                        <div class = "hashtag">#niceweather</div>
+                        <div class = "hashtag">#lovenature</div>
+                        <div class = "hashtag">#travelling</div>
+                    </div>
+                    <div style="clear:both"></div>
                 </div>
-                <div class = "buttonGroup">
-                    <button>
-                        edit
-                    </button>
-                    <button>
-                        delete
-                    </button>
-                </div>
-                <div class = "hashtag">#niceweather</div>
-                <div class = "hashtag">#lovenature</div>
-                <div class = "hashtag">#travelling</div>
-            </div>
-            <div style="clear:both"></div>
+            </section>
         </div>
-    </div>
+    </article>
 
-    <div class = "footer">
-        <p class = "footerElement">Designed by Kurch Dmitry, 2course 2group FAMCS BSU fpm.kurch@bsu.by</p>
-        <p class = "footerElement">Travel&Share 23.02.2018</p>
-        <p class = "footerElement">All rights reserved</p>
-    </div>
+    <footer>
+        <div class = "footer">
+            <address>
+                <p class = "footerElement">Designed by Kurch Dmitry, 2course 2group FAMCS BSU fpm.kurch@bsu.by</p>
+            </address>
+            <p class = "footerElement">Travel&Share 23.02.2018</p>
+            <p class = "footerElement">All rights reserved</p>
+        </div>
+    </footer>
 
 </div>
 
