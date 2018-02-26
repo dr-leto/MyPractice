@@ -7,44 +7,31 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
     <script defer src="fontawesome-free-5.0.6/on-server/js/fontawesome-all.js"></script>
     <title>Travel&Share</title>
 </head>
 
 <body>
 
-<div class = "hat">
-    <div class = "hatElement">
+<div class = "divHat">
         <header>
             <p class = "header">Travel&Share<p>
         </header>
-    </div>
     <nav>
-        <div class = "hatElement">
-            <button class = "headButton">
-                Filter by...
-            </button>
-        </div>
-        <div class = "hatElement">
-            <div class = "double">
-                <i class="far fa-image"></i>
-            </div>
-            <div class = "double">
-                <button class = "headButton">
-                    Add photo
-                </button>
-            </div>
-        </div>
-        <div class = "hatElement">
-            <div class = "double">
-                <p class = "name"> Bear_Grylls</p>
-            </div>
-            <div class = "double">
-                <button class=" headButton">
-                    Log out
-                </button>
-            </div>
-        </div>
+        <button class = "buttonHead">
+            Filter by...
+        </button>
+        <i class="far fa-image"></i>
+        <button class = "buttonHead">
+            Add photo
+        </button>
+        <p class = "nameHead"> Bear_Grylls</p>
+        <button class="buttonHead" style ="margin-right:0">
+            Log out
+        </button>
     </nav>
     <div style="clear:both"></div>
 </div>
@@ -52,19 +39,19 @@
 <div class = "filter">
     <form>
         <div class = "filterElement">
-            <input type = "text" name = "hashtagFilter" value = "#lovenature">
-            <input type = "checkbox" name = "checkHashtagFilter">
+            <input class = "filterText" type = "text" name = "hashtagFilter" value = "#lovenature">
+            <input class = "checkbox" type = "checkbox" name = "checkHashtagFilter">
         </div>
         <div class = "filterElement">
-            <input type = "date" name = "dateFilter" >
-            <input type = "checkbox" name = "checkDateFilter">
+            <input class = "filterText" type = "date" name = "dateFilter" >
+            <input class = "checkbox" type = "checkbox" name = "checkDateFilter">
         </div>
         <div class = "filterElement">
-            <input type = "text" name = "nameFilter" value = "Bear_Grylls">
-            <input type = "checkbox" name = "checkNameFilter">
+            <input class = "filterText" type = "text" name = "nameFilter" value = "Bear_Grylls">
+            <input class = "checkbox" type = "checkbox" name = "checkNameFilter">
         </div>
         <div class = "buttonFilter">
-            <input type = "submit" value = "Submit">
+            <input class = "buttonSubmit" type = "submit" value = "Submit">
         </div>
     </form>
 </div>
@@ -75,28 +62,19 @@
         <div align="center">
             <section>
                 <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">My usual morning wood</div>
+                    <div class = "divDataPost">26.02.2018</div>
+                    <img src = "images/Bear.jpg" alt = "Bear_Grylls" class = "image">
                     <div class = "postElement">
-                        <div class = "namePostElement">Bear_Grylls</div>
-                        <div class = "descriptionPostElement">Me and my morning wood</div>
-                        <div class = "dataPostElement">22.02.2018</div>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class = "postElement">
-                        <img src = "images/Bear.jpg" alt = "Bear_Grylls" class = "image">
-                    </div>
-                    <div class = "postElement">
-                        <div class = "like">
                             <i class="fas fa-heart"></i>
-                            6
-                        </div>
-                        <div class = "buttonGroup">
-                            <button>
+                            <p class = "numberLike">6</p>
+                            <button class = "buttonEditDelete">
                                 edit
                             </button>
-                            <button>
+                            <button class = "buttonEditDelete">
                                 delete
                             </button>
-                        </div>
                         <div class = "hashtag">#niceweather</div>
                         <div class = "hashtag">#lovenature</div>
                         <div class = "hashtag">#travelling</div>
@@ -107,17 +85,260 @@
         </div>
     </article>
 
-    <footer>
-        <div class = "footer">
-            <address>
-                <p class = "footerElement">Designed by Kurch Dmitry, 2course 2group FAMCS BSU fpm.kurch@bsu.by</p>
-            </address>
-            <p class = "footerElement">Travel&Share 23.02.2018</p>
-            <p class = "footerElement">All rights reserved</p>
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">I want you to for US army</div>
+                    <div class = "divDataPost">25.02.2018</div>
+                    <img src = "images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">30</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#challenge</div>
+                        <div class = "hashtag">#brave</div>
+                        <div class = "hashtag">#honor</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
         </div>
-    </footer>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">Me and ma nigga</div>
+                    <div class = "divDataPost">24.02.2018</div>
+                    <img src = "images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">99</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#BFF</div>
+                        <div class = "hashtag">#goodtimetogether</div>
+                        <div class = "hashtag">#joy</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">You're not you when you are hungry</div>
+                    <div class = "divDataPost">23.02.2018</div>
+                    <img src = "images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">123</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#youmyheart</div>
+                        <div class = "hashtag">#mmmmsotasty</div>
+                        <div class = "hashtag">#delicious</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">Follow me</div>
+                    <div class = "divDataPost">22.02.2018</div>
+                    <img src = "images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">160</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#flying</div>
+                        <div class = "hashtag">#socool</div>
+                        <div class = "hashtag">#airmax</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">My usual morning wood</div>
+                    <div class = "divDataPost">26.02.2018</div>
+                    <img src = "images/Bear.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">6</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#niceweather</div>
+                        <div class = "hashtag">#lovenature</div>
+                        <div class = "hashtag">#travelling</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">I want you to for US army</div>
+                    <div class = "divDataPost">25.02.2018</div>
+                    <img src = "images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">30</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#challenge</div>
+                        <div class = "hashtag">#brave</div>
+                        <div class = "hashtag">#honor</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">Me and ma nigga</div>
+                    <div class = "divDataPost">24.02.2018</div>
+                    <img src = "images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">99</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#BFF</div>
+                        <div class = "hashtag">#goodtimetogether</div>
+                        <div class = "hashtag">#joy</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">You're not you when you are hungry</div>
+                    <div class = "divDataPost">23.02.2018</div>
+                    <img src = "images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">123</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#youmyheart</div>
+                        <div class = "hashtag">#mmmmsotasty</div>
+                        <div class = "hashtag">#delicious</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <article>
+        <div align="center">
+            <section>
+                <div class = "post">
+                    <div class = "divNamePost">Bear_Grylls<p></div>
+                    <div class = "divDescriptionPost">Follow me</div>
+                    <div class = "divDataPost">22.02.2018</div>
+                    <img src = "images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    <div class = "postElement">
+                        <i class="fas fa-heart"></i>
+                        <p class = "numberLike">160</p>
+                        <button class = "buttonEditDelete">
+                            edit
+                        </button>
+                        <button class = "buttonEditDelete">
+                            delete
+                        </button>
+                        <div class = "hashtag">#flying</div>
+                        <div class = "hashtag">#socool</div>
+                        <div class = "hashtag">#airmax</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </section>
+        </div>
+    </article>
 
 </div>
+
+<footer>
+    <div class = "footer">
+        <address>
+            <p class = "footerElement">Designed by Kurch Dmitry, 2course 2group FAMCS BSU fpm.kurch@bsu.by</p>
+        </address>
+        <p class = "footerElement">Travel&Share 23.02.2018</p>
+        <p class = "footerElement">All rights reserved</p>
+    </div>
+</footer>
 
 </body>
 </html>
