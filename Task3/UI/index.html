@@ -22,9 +22,14 @@
             <p class = "header">Travel&Share<p>
         </header>
     <nav>
-        <button class = "buttonHead">
+        <button class = "buttonHead" onclick = "showFilter()">
             Filter by...
         </button>
+        <script>
+            function showFilter(){
+                document.getElementById("filter").style.display = "block";
+            }
+        </script>
         <i class="far fa-image"></i>
         <button class = "buttonHead">
             Add photo
@@ -37,7 +42,7 @@
     <div style="clear:both"></div>
 </div>
 
-<div class = "divFilter">
+<div class = "divFilter" id = "filter">
     <form>
         <div class = "divFilterElement">
             <input class = "filterText" type = "text" name = "hashtagFilter" value = "#lovenature">

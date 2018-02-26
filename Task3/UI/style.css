@@ -56,6 +56,7 @@ body{
 }
 
 .divFilter{
+    display: none;
     position:fixed;
     z-index:3;
     background-color:white;
