@@ -96,7 +96,7 @@ body{
     margin-bottom: 1px;
 }
 
-.buttonFilter{
+.divButtonFilter{
     padding: 3px;
     text-align:center;
 }
@@ -112,14 +112,14 @@ body{
     height:2.5vw;
 }
 
-.main{
+.divMain{
     position: relative;
     margin-top:4%;
     padding:1%;
-    background-color: rgba(201,201,201,0.13)
+    background-color: rgba(201,201,201,0.13);
 }
 
-.post{
+.divPost{
     background-color:white;
     border: solid 1px rgba(0,0,0,0.3);
     padding-top: 1vh;
@@ -133,7 +133,7 @@ body{
     text-align:left;
     margin :3px;
     font-family: 'Rancho', cursive;
-    font-size:3.5vh;
+    font-size:4vh;
     height:5vh;
 }
 
@@ -141,14 +141,14 @@ body{
     margin: 3px;
     float:left;
     font-family: 'Indie Flower', cursive;
-    font-size:2.5vh;
+    font-size:3vh;
 }
 
 .divDataPost{
     margin:3px;
     float:right;
     font-family: 'Indie Flower', cursive;
-    font-size:2.5vh;
+    font-size:3vh;
 }
 
 .image{
@@ -156,9 +156,13 @@ body{
     width:100%;
 }
 
+.buttonLike{
+    float:left;
+    background-color: white;
+    border-radius: 30px;
+}
 .fa-heart{
     font-size:4vh;
-    float:left;
 }
 
 .numberLike{
@@ -182,33 +186,34 @@ body{
     height:2vw;
 }
 
-.buttonEditDelete{
-    float:right;
-    margin-right:5px;
-    border : solid 2px rgba(0,0,0,0.5);
-    border-radius : 5px;
-    font-size : 1.5vw;
-    color : #ffffff;
-    padding : auto;
-    background-color: rgba(0,0,0,0.2);
-    width:6vw;
-    height:2vw;
-}
-
-.hashtag{
+.divHashtag{
     float: left;
     margin-right:6px;
     font-family: 'Ubuntu Condensed', sans-serif;
     color: rgba(0,90,255,0.95);
+    font-size:1.3vw;
 }
 
-.footer{
+.buttonLoadMore{
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 2vw;
+    color : #ffffff;
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:20vw;
+    height:3vw;
+}
+
+.divFooter{
     position:relative;
     border-top:solid 1px;
     background-color:gainsboro;
     text-align:center;
 }
 
-.footerElement{
+.footerText{
     margin:3px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1vw;
 }
