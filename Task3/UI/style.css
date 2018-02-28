@@ -156,6 +156,12 @@ body{
     font-size:3vh;
 }
 
+.figureImage{
+    height: 100%;
+    width: 100%;
+    margin:0;
+}
+
 .image{
     height: 100%;
     width:100%;
