@@ -106,7 +106,7 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 1.5vw;
-    color : #ffffff;
+    color : rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:7vw;
@@ -180,7 +180,7 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 1.5vw;
-    color : #ffffff;
+    color :rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:6vw;
@@ -199,7 +199,7 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 2vw;
-    color : #ffffff;
+    color : rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:20vw;
