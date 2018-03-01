@@ -59,7 +59,7 @@ body{
     font-size:2vw;
 }
 
-.divFilter{
+.asideFilter{
     display: none;
     position:fixed;
     z-index:3;
