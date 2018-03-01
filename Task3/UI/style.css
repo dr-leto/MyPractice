@@ -197,6 +197,10 @@ body{
     height:2vw;
 }
 
+.divhashtags{
+    float:left;
+    max-width: 60%;
+}
 .divHashtag{
     float: left;
     margin-right:6px;
