@@ -18,34 +18,41 @@
 <body>
 
 <div class = "divHat">
-        <header>
-            <p class = "header">Travel&Share<p>
-        </header>
-    <nav>
-        <button class = "buttonHead" onclick = "showFilter()">
-            Filter by...
-        </button>
-        <script>
-            function showFilter(){
-                document.getElementById("filter").style.display = "block";
-            }
-        </script>
-        <i class="far fa-image"></i>
-        <button class = "buttonHead">
-            Add photo
-        </button>
-        <p class = "nameHead"> Bear_Grylls</p>
-        <button class="buttonHead" style ="margin-right:0">
-            Log out
-        </button>
-    </nav>
-    <div style="clear:both"></div>
+    <header>
+        <p class = "header">Travel&Share<p>
+        <nav>
+            <button class = "buttonHead" onclick = "showFilter()">
+                Filter by...
+            </button>
+            <script>
+                function showFilter(){
+                    document.getElementById("filter").style.display = "block";
+                }
+            </script>
+            <i class="far fa-image"></i>
+            <button class = "buttonHead">
+                Add photo
+            </button>
+            <p class = "nameHead"> Bear_Grylls</p>
+            <button class="buttonHead" style ="margin-right:0">
+                Log out
+            </button>
+        </nav>
+    </header>
+    <div class="divBottomHelper"></div>
 </div>
 
-<div class = "divFilter" id = "filter">
+<aside class = "asideFilter" id = "filter">
     <form>
         <div class = "divFilterElement">
-            <input class = "filterText" type = "text" name = "hashtagFilter" value = "#lovenature">
+            <input class = "filterText" list ="hashtags" type = "text" name = "hashtagFilter" value = "#">
+            <datalist id="hashtags">
+                <option value="#niceweather">
+                <option value="#lovenature">
+                <option value="#travelling">
+                <option value="#goodtime">
+                <option value="#young&free">
+            </datalist>
             <input class = "checkbox" type = "checkbox" name = "checkHashtagFilter">
         </div>
         <div class = "divFilterElement">
@@ -60,7 +67,7 @@
             <input class = "buttonSubmit" type = "submit" value = "Submit">
         </div>
     </form>
-</div>
+</aside>
 
 <div class = "divMain">
 
@@ -71,7 +78,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">My usual morning wood</div>
                     <div class = "divDataPost">22.02.2018  4:19</div>
+                    <figure class = "figureImage">
                     <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -83,9 +92,11 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#niceweather</div>
-                        <div class = "divHashtag">#lovenature</div>
-                        <div class = "divHashtag">#travelling</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#niceweather</div>
+                            <div class = "divHashtag">#lovenature</div>
+                            <div class = "divHashtag">#travelling</div>
+                        </div>
                     </div>
                     <div style="clear:both"></div>
                 </div>
@@ -100,7 +111,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">I want you to for US army</div>
                     <div class = "divDataPost">23.02.2018  4:20</div>
-                    <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -112,11 +125,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#challenge</div>
-                        <div class = "divHashtag">#brave</div>
-                        <div class = "divHashtag">#honor</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#challenge</div>
+                            <div class = "divHashtag">#brave</div>
+                            <div class = "divHashtag">#honor</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -129,7 +144,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">Me and ma nigga</div>
                     <div class = "divDataPost">24.02.2018  16:43</div>
-                    <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -141,11 +158,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#BFF</div>
-                        <div class = "divHashtag">#goodtimetogether</div>
-                        <div class = "divHashtag">#hapiness</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#BFF</div>
+                            <div class = "divHashtag">#goodtimetogether</div>
+                            <div class = "divHashtag">#hapiness</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -158,7 +177,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">You're not you when you are hungry</div>
                     <div class = "divDataPost">25.02.2018  13:29</div>
-                    <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -170,11 +191,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#youmyheart</div>
-                        <div class = "divHashtag">#mmmmsotasty</div>
-                        <div class = "divHashtag">#delicious</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#youmyheart</div>
+                            <div class = "divHashtag">#mmmmsotasty</div>
+                            <div class = "divHashtag">#delicious</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -187,7 +210,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">Follow me</div>
                     <div class = "divDataPost">26.02.2018  19:09</div>
-                    <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -199,11 +224,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#flying</div>
-                        <div class = "divHashtag">#socool</div>
-                        <div class = "divHashtag">#airmax</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#flying</div>
+                            <div class = "divHashtag">#socool</div>
+                            <div class = "divHashtag">#airmax</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -216,7 +243,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">My usual morning wood</div>
                     <div class = "divDataPost">22.02.2018  4:19</div>
-                    <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -228,11 +257,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#niceweather</div>
-                        <div class = "divHashtag">#lovenature</div>
-                        <div class = "divHashtag">#travelling</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#niceweather</div>
+                            <div class = "divHashtag">#lovenature</div>
+                            <div class = "divHashtag">#travelling</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -245,7 +276,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">I want you to for US army</div>
                     <div class = "divDataPost">23.02.2018  4:20</div>
-                    <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -257,11 +290,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#challenge</div>
-                        <div class = "divHashtag">#brave</div>
-                        <div class = "divHashtag">#honor</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#challenge</div>
+                            <div class = "divHashtag">#brave</div>
+                            <div class = "divHashtag">#honor</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -274,7 +309,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">Me and ma nigga</div>
                     <div class = "divDataPost">24.02.2018  16:43</div>
-                    <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -286,11 +323,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#BFF</div>
-                        <div class = "divHashtag">#goodtimetogether</div>
-                        <div class = "divHashtag">#hapiness</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#BFF</div>
+                            <div class = "divHashtag">#goodtimetogether</div>
+                            <div class = "divHashtag">#hapiness</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -303,7 +342,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">You're not you when you are hungry</div>
                     <div class = "divDataPost">25.02.2018  13:29</div>
-                    <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -315,11 +356,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#youmyheart</div>
-                        <div class = "divHashtag">#mmmmsotasty</div>
-                        <div class = "divHashtag">#delicious</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#youmyheart</div>
+                            <div class = "divHashtag">#mmmmsotasty</div>
+                            <div class = "divHashtag">#delicious</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>
@@ -332,7 +375,9 @@
                     <div class = "divNamePost">Bear_Grylls<p></div>
                     <div class = "divDescriptionPost">Follow me</div>
                     <div class = "divDataPost">26.02.2018  19:09</div>
-                    <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    <figure class = "figureImage">
+                        <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
+                    </figure>
                     <div class = "postElement">
                         <button class = "buttonLike">
                             <i class="fas fa-heart"></i>
@@ -344,11 +389,13 @@
                         <button class = "buttonEditDelete">
                             delete
                         </button>
-                        <div class = "divHashtag">#flying</div>
-                        <div class = "divHashtag">#socool</div>
-                        <div class = "divHashtag">#airmax</div>
+                        <div class = "divhashtags">
+                            <div class = "divHashtag">#flying</div>
+                            <div class = "divHashtag">#socool</div>
+                            <div class = "divHashtag">#airmax</div>
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <div class="divBottomHelper"></div>
                 </div>
             </section>
         </div>

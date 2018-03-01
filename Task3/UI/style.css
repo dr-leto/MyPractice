@@ -13,6 +13,10 @@ body{
     border-bottom: solid 1px rgba(0,0,0,0.3);
 }
 
+.divBottomHelper{
+    clear:both;
+}
+
 .header{
     margin-right:7vw;
     margin-top:0;
@@ -55,7 +59,7 @@ body{
     font-size:2vw;
 }
 
-.divFilter{
+.asideFilter{
     display: none;
     position:fixed;
     z-index:3;
@@ -106,7 +110,7 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 1.5vw;
-    color : #ffffff;
+    color : rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:7vw;
@@ -152,6 +156,12 @@ body{
     font-size:3vh;
 }
 
+.figureImage{
+    height: 100%;
+    width: 100%;
+    margin:0;
+}
+
 .image{
     height: 100%;
     width:100%;
@@ -180,13 +190,17 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 1.5vw;
-    color : #ffffff;
+    color :rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:6vw;
     height:2vw;
 }
 
+.divhashtags{
+    float:left;
+    max-width: 60%;
+}
 .divHashtag{
     float: left;
     margin-right:6px;
@@ -199,7 +213,7 @@ body{
     border : solid 2px rgba(0,0,0,0.5);
     border-radius : 5px;
     font-size : 2vw;
-    color : #ffffff;
+    color : rgba(0,0,0,1);
     padding : auto;
     background-color: rgba(0,0,0,0.2);
     width:20vw;
