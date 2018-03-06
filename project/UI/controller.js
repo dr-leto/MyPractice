@@ -1,4 +1,4 @@
-;(function(){
+;var module =(function(){
     var posts = [
         {
             id: "1",
@@ -180,31 +180,53 @@
             hashtags : ["#BFF","#goodtimetogether","hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         }
+
     ];
 
     function getPost (str){
-        for (var i=0;i<posts.length;i++)
-        {
-            if (posts[i].id==str)
-            {
-                return posts[i];
-            }
-        }
-        console.log("no such post");
-        return null;
+        return posts.find(function (obj){
+            return obj.id == str;
+        });
+    }
+
+    function comporator (obj1, obj2) {
+        if (obj1.date < obj2.date)
+            return -1;
+        if (obj1.date > obj2.date)
+            return 1;
+        return 0;
+    }
+
+    function checkId (post){
+        return ((post.id!="") && (typeof post.id == "string"))
+    }
+    function checkDescription(post){
+        return ((post.description!="") && (typeof post.description=="string"))
+    }
+    function checkDate(post){
+        return post.date instanceof Date;
+    }
+    function checkAuthor(post){
+        return ((post.author!="") && (typeof post.author=="string"))
+    }
+    function checkPhotoLink(post){
+        return ((post.photoLink!="") && (typeof post.photoLink == "string"))
+    }
+    function checkHashtags(post){
+        return post.hashtags instanceof Array;
+    }
+    function checkLikes(post){
+        return post.likes instanceof Array;
     }
 
     function validatePost(post){
-        if (post!=null)
-            if ((post.id!="") && (typeof post.id == "string"))
-                if ((post.description!="") && (typeof post.description=="string"))
-                    if (post.date instanceof Date)
-                        if ((post.author!="") && (typeof post.author=="string"))
-                            if ((post.photoLink!="") && (typeof post.photoLink == "string"))
-                                if (post.hashtags instanceof Array)
-                                    if (post.likes instanceof Array )
-                                        return true;
-        return false;
+        return  checkId(post) &&
+                checkDescription(post) &&
+                checkDate(post)&&
+                checkAuthor(post)&&
+                checkPhotoLink(post)&&
+                checkHashtags(post)&&
+                checkLikes(post);
     }
 
     function addPost(post){
@@ -212,8 +234,7 @@
             posts.push(post);
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     function editPost(id, post)
@@ -221,23 +242,26 @@
         if (validatePost(getPost(id))&&post!=null)
         {
             var myPost = getPost(id);
-            if ((post.description!="") && (typeof post.description=="string"))
-                myPost.description=post.description;
-            if ((post.photoLink!="") && (typeof post.photoLink == "string"))
+            if (checkDescription(post)) {
+                myPost.description = post.description;
+            }
+            if (checkPhotoLink(post)) {
                 myPost.photoLink = post.photoLink;
-            if (post.hashtags instanceof Array)
+            }
+            if (checkHashtags(post)) {
                 myPost.hashtags = post.hashtags;
-            if (post.likes instanceof Array)
-                myPost.likes=post.likes;
+            }
+            if (checkLikes(post)) {
+                myPost.likes = post.likes;
+            }
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     function removePost (id){
         for (var i=0;i<posts.length;i++)
-            if (posts[i].id==id) {
+            if (posts[i].id===id) {
                 posts.splice(i, 1);
                 return true;
             }
@@ -245,101 +269,95 @@
     }
 
     function getPosts(skip, top, filter){
-        if (skip==undefined)
-            skip=0;
-        if (top==undefined)
-            top = 10;
+        skip = skip || 0;
+        top = top || 10;
         if (filter==undefined) {
-            posts.sort(function (obj1, obj2) {
-                if (obj1.date < obj2.date)
-                    return -1;
-                if (obj1.date > obj2.date)
-                    return 1;
-                return 0;
-            });
+            posts.sort(comporator);
             return posts.slice(skip, top);
         }
         else
         {
             var newPosts = posts;
-            if (filter.author!=undefined && typeof filter.author == "string") {
+            if (checkAuthor(filter)) {
                 newPosts = newPosts.filter(function (obj) {
-                    return obj.author == filter.author;
+                    return obj.author === filter.author;
                 });
             }
-            if (filter.date!=undefined && filter.date instanceof Date){
+            if (checkDate(filter)){
                 newPosts = newPosts.filter(function(obj){
-                    return ((obj.date.getMonth()==filter.date.getMonth())&&(obj.date.getDate()==filter.date.getDate()));
+                    return ((obj.date.getMonth()===filter.date.getMonth())&&(obj.date.getDate()===filter.date.getDate()));
                 });
             }
-            var newNewPosts = [];
-            if (filter.hashtags!=undefined && filter.hashtags instanceof Array){
+            var tempPosts = [];
+            if (checkHashtags(filter)){
                 for (var k=0;k<filter.hashtags.length;k++)
                 {
                     for (var i=0;i<newPosts.length;i++) {
                         for (var j = 0; j < newPosts[i].hashtags.length; j++) {
-                            if (newPosts[i].hashtags[j]==filter.hashtags[k])
-                                newNewPosts.push(newPosts[i]);
+                            if (newPosts[i].hashtags[j]===filter.hashtags[k])
+                                tempPosts.push(newPosts[i]);
                         }
                     }
                 }
-                newPosts = newNewPosts;
+                newPosts = tempPosts;
             }
-            newPosts.sort(function(obj1, obj2){
-                if (obj1.date<obj2.date)
-                    return -1;
-                if (obj1.date>obj2.date)
-                    return 1;
-                return 0;
-            });
+            newPosts.sort(comporator);
             return newPosts.slice(skip,top);
         }
     }
-
-
-    console.log("get post with id=2");
-    console.log(getPost("2"));
-    console.log("added valid post");
-    console.log(addPost({
-        id: "21",
-        description: "Hello,it is me",
-        date: new Date("2018","2","7","4","19"),
-        author: "Dmitry_Kurch",
-        photoLink: "../images/Dima1.jpg",
-        hashtags: ["hello"],
-        likes:[]
-    }));
-    console.log("added invalid post")
-    console.log(addPost({
-        id: "21",
-        description: "Hello,it is me",
-        date: new Date("2018","1","7","4","19"),
-        author: "Dmitry_Kurch",
-        photoLink: "",
-        hashtags: ["#hello"],
-        likes:[]
-    }));
-    console.log("validate post №3");
-    console.log(getPost("3"));
-    console.log(editPost("3",{
-        description: "Changed post",
-        hashtags:["#newhashtag"]
-    }));
-    console.log("removing post id №21 ");
-    console.log(removePost("21"));
-
-    console.log("get first 10 posts sorted");
-    console.log(getPosts());
-    console.log("get Dmitry_Kurch posts");
-    console.log(getPosts(0,10,{author:"Dmitry_Kurch"}));
-    console.log("get Bear_Grylls posts by March 7");
-    console.log(getPosts(0,10,{
-        author:"Bear_Grylls",
-        date: new Date("2018","2","7")
-    }));
-    console.log("get Dmitry_Kurch posts include hashtag #BFF");
-    console.log(getPosts(0,10,{
-        author:"Dmitry_Kurch",
-        hashtags:["#BFF"]
-    }));
+    return{
+        getPost: getPost,
+        validatePost: validatePost,
+        addPost: addPost,
+        editPost: editPost,
+        removePost: removePost,
+        getPosts:getPosts
+    }
 }());
+
+
+console.log("get post with id=2");
+console.log(module.getPost("2"));
+console.log("added valid post");
+console.log(module.addPost({
+    id: "21",
+    description: "Hello,it is me",
+    date: new Date("2018","2","7","4","19"),
+    author: "Dmitry_Kurch",
+    photoLink: "../images/Dima1.jpg",
+    hashtags: ["hello"],
+    likes:[]
+}));
+console.log("added invalid post")
+console.log(module.addPost({
+    id: "21",
+    description: "Hello,it is me",
+    date: new Date("2018","1","7","4","19"),
+    author: "Dmitry_Kurch",
+    photoLink: "",
+    hashtags: ["#hello"],
+    likes:[]
+}));
+console.log("validate post №3");
+console.log(module.getPost("3"));
+console.log(module.editPost("3",{
+    description: "Changed post",
+    hashtags:["#newhashtag"]
+}));
+console.log("removing post id №21 ");
+console.log(module.removePost("21"));
+
+console.log("get first 10 posts sorted");
+console.log(module.getPosts());
+console.log("get Dmitry_Kurch posts");
+console.log(module.getPosts(0,10,{author:"Dmitry_Kurch"}));
+console.log("get Bear_Grylls posts by March 7");
+console.log(module.getPosts(0,10,{
+    author:"Bear_Grylls",
+    date: new Date("2018","2","7")
+}));
+console.log("get Dmitry_Kurch posts include hashtag #BFF");
+console.log(module.getPosts(0,10,{
+    author:"Dmitry_Kurch",
+    hashtags:["#BFF"]
+}));
