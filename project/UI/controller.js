@@ -183,9 +183,9 @@
 
     ];
 
-    function getPost (str){
+    function getPhotoPost (str){
         return posts.find(function (obj){
-            return obj.id == str;
+            return obj.id === str;
         });
     }
 
@@ -219,7 +219,7 @@
         return post.likes instanceof Array;
     }
 
-    function validatePost(post){
+    function validatePhotoPost(post){
         return  checkId(post) &&
                 checkDescription(post) &&
                 checkDate(post)&&
@@ -229,19 +229,19 @@
                 checkLikes(post);
     }
 
-    function addPost(post){
-        if (validatePost(post)) {
+    function addPhotoPost(post){
+        if (validatePhotoPost(post)) {
             posts.push(post);
             return true;
         }
         return false;
     }
 
-    function editPost(id, post)
+    function editPhotoPost(id, post)
     {
-        if (validatePost(getPost(id))&&post!=null)
+        if (validatePhotoPost(getPhotoPost(id))&&post!=null)
         {
-            var myPost = getPost(id);
+            var myPost = getPhotoPost(id);
             if (checkDescription(post)) {
                 myPost.description = post.description;
             }
@@ -259,7 +259,7 @@
         return false;
     }
 
-    function removePost (id){
+    function removePhotoPost (id){
         for (var i=0;i<posts.length;i++)
             if (posts[i].id===id) {
                 posts.splice(i, 1);
@@ -268,7 +268,7 @@
         return false;
     }
 
-    function getPosts(skip, top, filter){
+    function getPhotoPosts(skip, top, filter){
         skip = skip || 0;
         top = top || 10;
         if (filter==undefined) {
@@ -306,20 +306,20 @@
         }
     }
     return{
-        getPost: getPost,
-        validatePost: validatePost,
-        addPost: addPost,
-        editPost: editPost,
-        removePost: removePost,
-        getPosts:getPosts
+        getPhotoPost: getPhotoPost,
+        validatePhotoPost: validatePhotoPost,
+        addPhotoPost: addPhotoPost,
+        editPhotoPost: editPhotoPost,
+        removePhotoPost: removePhotoPost,
+        getPhotoPosts:getPhotoPosts
     }
 }());
 
 
 console.log("get post with id=2");
-console.log(module.getPost("2"));
+console.log(module.getPhotoPost("2"));
 console.log("added valid post");
-console.log(module.addPost({
+console.log(module.addPhotoPost({
     id: "21",
     description: "Hello,it is me",
     date: new Date("2018","2","7","4","19"),
@@ -329,7 +329,7 @@ console.log(module.addPost({
     likes:[]
 }));
 console.log("added invalid post")
-console.log(module.addPost({
+console.log(module.addPhotoPost({
     id: "21",
     description: "Hello,it is me",
     date: new Date("2018","1","7","4","19"),
@@ -339,25 +339,25 @@ console.log(module.addPost({
     likes:[]
 }));
 console.log("validate post №3");
-console.log(module.getPost("3"));
-console.log(module.editPost("3",{
+console.log(module.getPhotoPost("3"));
+console.log(module.editPhotoPost("3",{
     description: "Changed post",
     hashtags:["#newhashtag"]
 }));
 console.log("removing post id №21 ");
-console.log(module.removePost("21"));
+console.log(module.removePhotoPost("21"));
 
 console.log("get first 10 posts sorted");
-console.log(module.getPosts());
+console.log(module.getPhotoPosts());
 console.log("get Dmitry_Kurch posts");
-console.log(module.getPosts(0,10,{author:"Dmitry_Kurch"}));
+console.log(module.getPhotoPosts(0,10,{author:"Dmitry_Kurch"}));
 console.log("get Bear_Grylls posts by March 7");
-console.log(module.getPosts(0,10,{
+console.log(module.getPhotoPosts(0,10,{
     author:"Bear_Grylls",
     date: new Date("2018","2","7")
 }));
 console.log("get Dmitry_Kurch posts include hashtag #BFF");
-console.log(module.getPosts(0,10,{
+console.log(module.getPhotoPosts(0,10,{
     author:"Dmitry_Kurch",
     hashtags:["#BFF"]
 }));
