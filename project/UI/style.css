@@ -3,6 +3,10 @@ body{
     padding: 0;
 }
 
+.post{
+    display: none;
+}
+
 .divHat{
     position:fixed;
     z-index:2;
@@ -149,7 +153,7 @@ body{
     font-size:3vh;
 }
 
-.divDataPost{
+.divDatePost{
     margin:3px;
     float:right;
     font-family: 'Indie Flower', cursive;
@@ -184,7 +188,8 @@ body{
     font-size:4vh;
 }
 
-.buttonEditDelete{
+.buttonEdit{
+    display: none;
     float:right;
     margin-right:5px;
     border : solid 2px rgba(0,0,0,0.5);
@@ -197,12 +202,23 @@ body{
     height:2vw;
 }
 
-.divhashtags{
+.buttonDelete{
+    display: none;
+    float:right;
+    margin-right:5px;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 1.5vw;
+    color :rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:6vw;
+    height:2vw;
+}
+
+.divHashtags{
     float:left;
     max-width: 60%;
-}
-.divHashtag{
-    float: left;
     margin-right:6px;
     font-family: 'Ubuntu Condensed', sans-serif;
     color: rgba(0,90,255,0.95);
