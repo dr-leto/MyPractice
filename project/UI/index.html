@@ -30,13 +30,16 @@
                     document.getElementById("filter").style.display = "block";
                 }
             </script>
-            <i class="far fa-image"></i>
-            <button class = "buttonHead">
+            <i id = "iconAddPhoto" class="far fa-image" style = "display:none"></i>
+            <button id ="buttonAddPhoto" class = "buttonHead" style = "display:none">
                 Add photo
             </button>
-            <p class = "nameHead"> Bear_Grylls</p>
-            <button class="buttonHead" style ="margin-right:0">
+            <p id ="name" class = "nameHead"> </p>
+            <button id = "buttonLogout" class="buttonHead" style =" margin-right:0 ;display:none">
                 Log out
+            </button>
+            <button id ="buttonLogin" class="buttonHead">
+                Log in
             </button>
         </nav>
     </header>
@@ -46,8 +49,8 @@
 <aside class = "asideFilter" id = "filter">
     <form>
         <div class = "divFilterElement">
-            <input class = "filterText" list ="hashtags" type = "text" name = "hashtagFilter" value = "#">
-            <datalist id="hashtags">
+            <input class = "filterText" list ="optionHashtags" type = "text" name = "hashtagFilter" value = "#">
+            <datalist id="optionHashtags">
                 <option value="#niceweather">
                 <option value="#lovenature">
                 <option value="#travelling">
@@ -61,7 +64,10 @@
             <input class = "checkbox" type = "checkbox" name = "checkDateFilter">
         </div>
         <div class = "divFilterElement">
-            <input class = "filterText" type = "text" name = "nameFilter" value = "Bear_Grylls">
+            <input class = "filterText" list="optionNames" type = "text" name = "nameFilter">
+            <datalist id="optionNames">
+
+            </datalist>
             <input class = "checkbox" type = "checkbox" name = "checkNameFilter">
         </div>
         <div class = "divButtonFilter">

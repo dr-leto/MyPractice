@@ -182,9 +182,9 @@
         }
     ];
 
-    function getPhotoPost (str){
+    function getPhotoPost (id){
         return posts.find(function (obj){
-            return obj.id === str;
+            return obj.id === id;
         });
     }
 
@@ -304,12 +304,23 @@
             return newPosts.slice(skip,top);
         }
     }
+
+    function getAuthors(){
+        var authors = new Set();
+        for (var p of posts){
+            authors.add(p.author);
+        }
+        return authors;
+    }
+
+
     return{
         getPhotoPost: getPhotoPost,
         validatePhotoPost: validatePhotoPost,
         addPhotoPost: addPhotoPost,
         editPhotoPost: editPhotoPost,
         removePhotoPost: removePhotoPost,
-        getPhotoPosts:getPhotoPosts
+        getPhotoPosts:getPhotoPosts,
+        getAuthors: getAuthors
     }
 }());

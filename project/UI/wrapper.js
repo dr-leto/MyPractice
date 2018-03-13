@@ -1,6 +1,6 @@
 ;var module =(function(){
 
-    var userName = "Bear_Grylls";
+    var userName = "Kurch_Dmitry";
     var posts = control.getPhotoPosts();
     var postList = document.querySelector(".divMain");
 
@@ -30,6 +30,25 @@
     }
 
     function update(){
+        if (userName!=="null"){
+            document.getElementById("name").innerText = userName;
+            document.getElementById("buttonLogout").style.display = "block";
+            document.getElementById("buttonLogin").style.display = "none";
+            document.getElementById("buttonAddPhoto").style.display = "block";
+            document.getElementById("iconAddPhoto").style.display = "block";
+        }
+
+        var authors = control.getAuthors();
+        var datalist = document.getElementById("optionNames");
+        while(datalist.firstChild){
+            datalist.removeChild(datalist.firstChild);
+        }
+        for (var author of authors){
+            var option = document.createElement("option");
+            option.value = author;
+            datalist.appendChild(option);
+        }
+
         posts = control.getPhotoPosts();
         while (postList.firstChild) {
             postList.removeChild(postList.firstChild);
@@ -37,6 +56,7 @@
         for (var p of posts) {
             createPhotoPost(p)
         }
+
     }
 
     function showPhotoPosts(skip, top, filter){
