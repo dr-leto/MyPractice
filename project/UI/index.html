@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <script defer src="../fontawesome-free-5.0.6/on-server/js/fontawesome-all.js"></script>
+    <script src ="controller.js"></script>
     <title>Travel&Share</title>
 </head>
 
@@ -29,13 +30,16 @@
                     document.getElementById("filter").style.display = "block";
                 }
             </script>
-            <i class="far fa-image"></i>
-            <button class = "buttonHead">
+            <i id = "iconAddPhoto" class="far fa-image" style = "display:none"></i>
+            <button id ="buttonAddPhoto" class = "buttonHead" style = "display:none">
                 Add photo
             </button>
-            <p class = "nameHead"> Bear_Grylls</p>
-            <button class="buttonHead" style ="margin-right:0">
+            <p id ="name" class = "nameHead"> </p>
+            <button id = "buttonLogout" class="buttonHead" style =" margin-right:0 ;display:none">
                 Log out
+            </button>
+            <button id ="buttonLogin" class="buttonHead">
+                Log in
             </button>
         </nav>
     </header>
@@ -45,8 +49,8 @@
 <aside class = "asideFilter" id = "filter">
     <form>
         <div class = "divFilterElement">
-            <input class = "filterText" list ="hashtags" type = "text" name = "hashtagFilter" value = "#">
-            <datalist id="hashtags">
+            <input class = "filterText" list ="optionHashtags" type = "text" name = "hashtagFilter" value = "#">
+            <datalist id="optionHashtags">
                 <option value="#niceweather">
                 <option value="#lovenature">
                 <option value="#travelling">
@@ -60,7 +64,10 @@
             <input class = "checkbox" type = "checkbox" name = "checkDateFilter">
         </div>
         <div class = "divFilterElement">
-            <input class = "filterText" type = "text" name = "nameFilter" value = "Bear_Grylls">
+            <input class = "filterText" list="optionNames" type = "text" name = "nameFilter">
+            <datalist id="optionNames">
+
+            </datalist>
             <input class = "checkbox" type = "checkbox" name = "checkNameFilter">
         </div>
         <div class = "divButtonFilter">
@@ -69,337 +76,40 @@
     </form>
 </aside>
 
-<div class = "divMain">
-    <script src ="controller.js"></script>
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">My usual morning wood</div>
-                    <div class = "divDataPost">22.02.2018  4:19</div>
-                    <figure class = "figureImage">
+<article id ="templatePost" class = "post">
+    <div align="center">
+        <section>
+            <div class = "divPost">
+                <div class = "divNamePost"></div>
+                <div class = "divDescriptionPost"></div>
+                <div class = "divDatePost"></div>
+                <figure class = "figureImage">
                     <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">6</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#niceweather</div>
-                            <div class = "divHashtag">#lovenature</div>
-                            <div class = "divHashtag">#travelling</div>
-                        </div>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-            </section>
-        </div>
-    </article>
+                </figure>
+                <div class ="postElement">
+                    <button class = "buttonLike">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <p class = "numberLike"></p>
+                    <button class = "buttonEdit">
+                        edit
+                    </button>
+                    <button class = "buttonDelete">
+                        delete
+                    </button>
+                    <div class = "divHashtags">
 
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">I want you to for US army</div>
-                    <div class = "divDataPost">23.02.2018  4:20</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">30</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#challenge</div>
-                            <div class = "divHashtag">#brave</div>
-                            <div class = "divHashtag">#honor</div>
-                        </div>
                     </div>
-                    <div class="divBottomHelper"></div>
                 </div>
-            </section>
-        </div>
-    </article>
+                <div style="clear:both"></div>
+            </div>
+        </section>
+    </div>
+</article>
 
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">Me and ma nigga</div>
-                    <div class = "divDataPost">24.02.2018  16:43</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">60</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#BFF</div>
-                            <div class = "divHashtag">#goodtimetogether</div>
-                            <div class = "divHashtag">#hapiness</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
+<div class = "divMain">
 
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">You're not you when you are hungry</div>
-                    <div class = "divDataPost">25.02.2018  13:29</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">129</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#youmyheart</div>
-                            <div class = "divHashtag">#mmmmsotasty</div>
-                            <div class = "divHashtag">#delicious</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">Follow me</div>
-                    <div class = "divDataPost">26.02.2018  19:09</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">200</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#flying</div>
-                            <div class = "divHashtag">#socool</div>
-                            <div class = "divHashtag">#airmax</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">My usual morning wood</div>
-                    <div class = "divDataPost">22.02.2018  4:19</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">6</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#niceweather</div>
-                            <div class = "divHashtag">#lovenature</div>
-                            <div class = "divHashtag">#travelling</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">I want you to for US army</div>
-                    <div class = "divDataPost">23.02.2018  4:20</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear2.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">30</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#challenge</div>
-                            <div class = "divHashtag">#brave</div>
-                            <div class = "divHashtag">#honor</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">Me and ma nigga</div>
-                    <div class = "divDataPost">24.02.2018  16:43</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear3.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">60</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#BFF</div>
-                            <div class = "divHashtag">#goodtimetogether</div>
-                            <div class = "divHashtag">#hapiness</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">You're not you when you are hungry</div>
-                    <div class = "divDataPost">25.02.2018  13:29</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear4.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">129</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#youmyheart</div>
-                            <div class = "divHashtag">#mmmmsotasty</div>
-                            <div class = "divHashtag">#delicious</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
-
-    <article>
-        <div align="center">
-            <section>
-                <div class = "divPost">
-                    <div class = "divNamePost">Bear_Grylls<p></div>
-                    <div class = "divDescriptionPost">Follow me</div>
-                    <div class = "divDataPost">26.02.2018  19:09</div>
-                    <figure class = "figureImage">
-                        <img src = "../images/Bear5.jpg" alt = "Bear_Grylls" class = "image">
-                    </figure>
-                    <div class = "postElement">
-                        <button class = "buttonLike">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <p class = "numberLike">200</p>
-                        <button class = "buttonEditDelete">
-                            edit
-                        </button>
-                        <button class = "buttonEditDelete">
-                            delete
-                        </button>
-                        <div class = "divhashtags">
-                            <div class = "divHashtag">#flying</div>
-                            <div class = "divHashtag">#socool</div>
-                            <div class = "divHashtag">#airmax</div>
-                        </div>
-                    </div>
-                    <div class="divBottomHelper"></div>
-                </div>
-            </section>
-        </div>
-    </article>
+    <script src ="wrapper.js"></script>
 
     <div align = center>
         <button class = "buttonLoadMore">

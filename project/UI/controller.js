@@ -1,4 +1,4 @@
-;var module =(function(){
+;var control =(function(){
     var posts = [
         {
             id: "1",
@@ -6,7 +6,7 @@
             date: new Date("2018","2","7","4","19"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear1.jpg",
-            hashtags : ["#travelling","#lovenature","niceweather"],
+            hashtags : ["#travelling","#lovenature","#niceweather"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
@@ -15,177 +15,176 @@
             date: new Date("2018","2","9","4","20"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear2.jpg",
-            hashtags : ["#challenge","#brave","honor"],
+            hashtags : ["#challenge","#brave","#honor"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "3",
             description: "Me and ma nigga",
-            date: new Date("2018","2","7","4","21"),
+            date: new Date("2018","2","8","4","21"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "4",
-            description: "Me and ma nigga",
+            description: "You're not you when you are hungry",
             date: new Date("2018","2","10","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear4.jpg",
+            hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "5",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","7","4","19"),
+            description: "Follow me",
+            date: new Date("2018","2","11","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear5.jpg",
+            hashtags : ["#flying","#socool","#airmax"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "6",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","20","4","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            description: "My usual morning wood",
+            date: new Date("2018","2","5","4","19"),
+            author: "Bear_Grylls",
+            photoLink: "../images/Bear1.jpg",
+            hashtags : ["#travelling","#lovenature","#niceweather"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "7",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","25","4","19"),
+            description: "I want you to for US army",
+            date: new Date("2018","2","8","4","20"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear2.jpg",
+            hashtags : ["#challenge","#brave","#honor"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "8",
             description: "Me and ma nigga",
-            date: new Date("2018","2","14","14","19"),
-            author: "Dmitry_Kurch",
+            date: new Date("2018","2","9","4","21"),
+            author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "9",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","2","2","19"),
+            description: "You're not you when you are hungry",
+            date: new Date("2018","2","10","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear4.jpg",
+            hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "10",
-            description: "Me and ma nigga",
-            date: new Date("2018","1","7","4","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            description: "Follow me",
+            date: new Date("2018","2","11","4","19"),
+            author: "Bear_Grylls",
+            photoLink: "../images/Bear5.jpg",
+            hashtags : ["#flying","#socool","#airmax"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "11",
-            description: "Me and ma nigga",
-            date: new Date("2018","1","29","4","19"),
+            description: "My usual morning wood",
+            date: new Date("2018","2","11","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear1.jpg",
+            hashtags : ["#travelling","#lovenature","#niceweather"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "12",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","7","20","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            description: "I want you to for US army",
+            date: new Date("2018","2","10","4","20"),
+            author: "Bear_Grylls",
+            photoLink: "../images/Bear2.jpg",
+            hashtags : ["#challenge","#brave","#honor"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "13",
             description: "Me and ma nigga",
-            date: new Date("2018","1","7","11","19"),
+            date: new Date("2018","2","9","4","21"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "14",
-            description: "Me and ma nigga",
-            date: new Date("2018","2","7","11","19"),
+            description: "You're not you when you are hungry",
+            date: new Date("2018","2","8","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear4.jpg",
+            hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "15",
-            description: "Me and ma nigga",
-            date: new Date("2018","1","21","1","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
-        }
-        ,{
-            id: "16",
-            description: "Me and ma nigga",
-            date: new Date("2018","1","30","1","19"),
+            description: "Follow me",
+            date: new Date("2018","2","7","4","19"),
             author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            photoLink: "../images/Bear5.jpg",
+            hashtags : ["#flying","#socool","#airmax"],
+            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+        },
+        {
+            id: "16",
+            description: "My car",
+            date: new Date("2018","1","30","1","19"),
+            author: "Jeremy_Clarkson",
+            photoLink: "../images/Jeremy1.jpg",
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "17",
-            description: "Me and ma nigga",
+            description: "My friend",
             date: new Date("2018","1","13","1","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            author: "Jeremy_Clarkson",
+            photoLink: "../images/Jeremy2.jpg",
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "18",
-            description: "Me and ma nigga",
+            description: "Going somewhere",
             date: new Date("2018","1","11","1","19"),
-            author: "Bear_Grylls",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            author: "Jeremy_Clarkson",
+            photoLink: "../images/Jeremy3.jpg",
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "19",
-            description: "Me and ma nigga",
+            description: "A flight to Russia",
             date: new Date("2018","1","10","1","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            author: "Jeremy_Clarkson",
+            photoLink: "../images/Jeremy4.jpg",
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "20",
-            description: "Me and ma nigga",
+            description: "Australia coast",
             date: new Date("2018","1","7","1","19"),
-            author: "Dmitry_Kurch",
-            photoLink: "../images/Bear3.jpg",
-            hashtags : ["#BFF","#goodtimetogether","hapiness"],
+            author: "Jeremy_Clarkson",
+            photoLink: "../images/Jeremy5.jpg",
+            hashtags : ["#BFF","#goodtimetogether","#hapiness"],
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         }
-
     ];
 
-    function getPhotoPost (str){
+    function getPhotoPost (id){
         return posts.find(function (obj){
-            return obj.id === str;
+            return obj.id === id;
         });
     }
 
@@ -305,59 +304,23 @@
             return newPosts.slice(skip,top);
         }
     }
+
+    function getAuthors(){
+        var authors = new Set();
+        for (var p of posts){
+            authors.add(p.author);
+        }
+        return authors;
+    }
+
+
     return{
         getPhotoPost: getPhotoPost,
         validatePhotoPost: validatePhotoPost,
         addPhotoPost: addPhotoPost,
         editPhotoPost: editPhotoPost,
         removePhotoPost: removePhotoPost,
-        getPhotoPosts:getPhotoPosts
+        getPhotoPosts:getPhotoPosts,
+        getAuthors: getAuthors
     }
 }());
-
-
-console.log("get post with id=2");
-console.log(module.getPhotoPost("2"));
-console.log("added valid post");
-console.log(module.addPhotoPost({
-    id: "21",
-    description: "Hello,it is me",
-    date: new Date("2018","2","7","4","19"),
-    author: "Dmitry_Kurch",
-    photoLink: "../images/Dima1.jpg",
-    hashtags: ["hello"],
-    likes:[]
-}));
-console.log("added invalid post")
-console.log(module.addPhotoPost({
-    id: "21",
-    description: "Hello,it is me",
-    date: new Date("2018","1","7","4","19"),
-    author: "Dmitry_Kurch",
-    photoLink: "",
-    hashtags: ["#hello"],
-    likes:[]
-}));
-console.log("validate post №3");
-console.log(module.getPhotoPost("3"));
-console.log(module.editPhotoPost("3",{
-    description: "Changed post",
-    hashtags:["#newhashtag"]
-}));
-console.log("removing post id №21 ");
-console.log(module.removePhotoPost("21"));
-
-console.log("get first 10 posts sorted");
-console.log(module.getPhotoPosts());
-console.log("get Dmitry_Kurch posts");
-console.log(module.getPhotoPosts(0,10,{author:"Dmitry_Kurch"}));
-console.log("get Bear_Grylls posts by March 7");
-console.log(module.getPhotoPosts(0,10,{
-    author:"Bear_Grylls",
-    date: new Date("2018","2","7")
-}));
-console.log("get Dmitry_Kurch posts include hashtag #BFF");
-console.log(module.getPhotoPosts(0,10,{
-    author:"Dmitry_Kurch",
-    hashtags:["#BFF"]
-}));
