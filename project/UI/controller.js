@@ -7,7 +7,7 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "2",
@@ -25,7 +25,7 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "4",
@@ -39,11 +39,11 @@
         {
             id: "5",
             description: "Follow me",
-            date: new Date("2018","2","11","4","19"),
+            date: new Date("2018","2","21","4","19"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear5.jpg",
             hashtags : ["#flying","#socool","#airmax"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Dmitry_Kurch","Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "6",
@@ -61,12 +61,12 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear2.jpg",
             hashtags : ["#challenge","#brave","#honor"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "8",
             description: "Me and ma nigga",
-            date: new Date("2018","2","9","4","21"),
+            date: new Date("2018","2","4","4","21"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -75,11 +75,11 @@
         {
             id: "9",
             description: "You're not you when you are hungry",
-            date: new Date("2018","2","10","4","19"),
+            date: new Date("2018","2","15","4","19"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear4.jpg",
             hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "10",
@@ -97,7 +97,7 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "12",
@@ -115,7 +115,7 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "14",
@@ -133,7 +133,7 @@
             author: "Bear_Grylls",
             photoLink: "../images/Bear5.jpg",
             hashtags : ["#flying","#socool","#airmax"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "16",
@@ -142,7 +142,7 @@
             author: "Jeremy_Clarkson",
             photoLink: "../images/Jeremy1.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "17",
@@ -160,7 +160,7 @@
             author: "Jeremy_Clarkson",
             photoLink: "../images/Jeremy3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
             id: "19",
@@ -178,7 +178,7 @@
             author: "Jeremy_Clarkson",
             photoLink: "../images/Jeremy5.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
-            likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
+            likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         }
     ];
 
@@ -189,9 +189,9 @@
     }
 
     function comporator (obj1, obj2) {
-        if (obj1.date < obj2.date)
-            return -1;
         if (obj1.date > obj2.date)
+            return -1;
+        if (obj1.date < obj2.date)
             return 1;
         return 0;
     }
@@ -313,6 +313,21 @@
         return authors;
     }
 
+    function likePhotoPost(id, user){
+        var post = getPhotoPost(id);
+        var remove = false;
+        for (var i=0;i<post.likes.length;i++){
+            if (user===post.likes[i]) {
+                post.likes.splice(i, 1);
+                remove = true;
+                break;
+            }
+        }
+        if (!remove){
+            post.likes.push(user);
+        }
+    }
+
 
     return{
         getPhotoPost: getPhotoPost,
@@ -321,6 +336,7 @@
         editPhotoPost: editPhotoPost,
         removePhotoPost: removePhotoPost,
         getPhotoPosts:getPhotoPosts,
-        getAuthors: getAuthors
+        getAuthors: getAuthors,
+        likePhotoPost: likePhotoPost
     }
 }());

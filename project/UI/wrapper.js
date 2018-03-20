@@ -1,22 +1,36 @@
 ;var module =(function(){
 
-    var userName = "Kurch_Dmitry";
+    var userName = "Dmitry_Kurch";
     var posts = control.getPhotoPosts();
     var postList = document.querySelector(".divMain");
 
     function createPhotoPost(postConfig){
+        var hit = false;
+        for (var like of postConfig.likes){
+            if (like===userName) {
+                document.getElementById("iconLike").style.display = "block";
+                document.getElementById("iconNoLike").style.display = "none";
+                hit = true;
+                break;
+            }
+        }
+        if (!hit){
+            document.getElementById("iconLike").style.display = "none";
+            document.getElementById("iconNoLike").style.display = "block";
+        }
+
         var post = document.getElementById("templatePost").cloneNode(true);
         post.className = "none";
         post.id = null;
 
-        post.querySelector(".divNamePost").innerText = postConfig["author"];
-        post.querySelector(".divDescriptionPost").innerText = postConfig["description"];
-        post.querySelector(".divDatePost").innerText = postConfig["date"].toDateString();
-        post.querySelector(".image").src = postConfig["photoLink"];
-        post.querySelector(".numberLike").innerText = postConfig["likes"].length;
+        post.querySelector(".divNamePost").innerText = postConfig.author;
+        post.querySelector(".divDescriptionPost").innerText = postConfig.description;
+        post.querySelector(".divDatePost").innerText = postConfig.date.toDateString();
+        post.querySelector(".image").src = postConfig.photoLink;
+        post.querySelector(".numberLike").innerText = postConfig.likes.length;
         var hashtags = "";
         for (var i=0;i<postConfig.hashtags.length;i++){
-            hashtags += postConfig["hashtags"][i] + " ";
+            hashtags += postConfig.hashtags[i] + " ";
         }
         post.querySelector(".divHashtags").innerText = hashtags;
 
@@ -30,7 +44,7 @@
     }
 
     function update(){
-        if (userName!=="null"){
+        if (userName!==null){
             document.getElementById("name").innerText = userName;
             document.getElementById("buttonLogout").style.display = "block";
             document.getElementById("buttonLogin").style.display = "none";
@@ -49,12 +63,11 @@
             datalist.appendChild(option);
         }
 
-        posts = control.getPhotoPosts();
         while (postList.firstChild) {
             postList.removeChild(postList.firstChild);
         }
         for (var p of posts) {
-            createPhotoPost(p)
+            createPhotoPost(p);
         }
 
     }
@@ -66,16 +79,25 @@
 
     function addPhotoPost(post){
         control.addPhotoPost(post);
+        posts = control.getPhotoPosts();
         update();
     }
 
     function deletePhotoPost(id){
         control.removePhotoPost(id);
+        posts = control.getPhotoPosts();
         update();
     }
 
     function editPhotoPost(id, post){
         control.editPhotoPost(id,post);
+        posts = control.getPhotoPosts();
+        update();
+    }
+
+    function likePhotoPost(id){
+        control.likePhotoPost(id,userName);
+        posts = control.getPhotoPosts();
         update();
     }
 
@@ -83,7 +105,8 @@
         showPhotoPosts : showPhotoPosts,
         addPhotoPost: addPhotoPost,
         deletePhotoPost: deletePhotoPost,
-        editPhotoPost: editPhotoPost
+        editPhotoPost: editPhotoPost,
+        likePhotoPost: likePhotoPost
     }
 
 }());
@@ -94,7 +117,7 @@ console.log("added valid post");
 console.log(module.addPhotoPost({
     id: "21",
     description: "Hello, it is me",
-    date: new Date("2018","1","3","4","18"),
+    date: new Date("2018","3","3","4","18"),
     author: "Dmitry_Kurch",
     photoLink: "../images/Dima1.jpg",
     hashtags: ["#hello"],
@@ -107,4 +130,12 @@ console.log(module.editPhotoPost("19",{
 }));
 console.log("removing post id №6 ");
 console.log(module.deletePhotoPost("6"));
+module.likePhotoPost("21");
+/*
+console.log(module.showPhotoPosts(0,10,{
+    author:"Bear_Grylls",
+    date: new Date("2018","2","11")
+}));
+*/
+
 
