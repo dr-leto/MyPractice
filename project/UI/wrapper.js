@@ -48,20 +48,37 @@
             document.getElementById("name").innerText = userName;
             document.getElementById("buttonLogout").style.display = "block";
             document.getElementById("buttonLogin").style.display = "none";
-            document.getElementById("buttonAddPhoto").style.display = "block";
+            document.getElementById("buttonAddPhotoPost").style.display = "block";
             document.getElementById("iconAddPhoto").style.display = "block";
         }
 
         var authors = control.getAuthors();
-        var datalist = document.getElementById("optionNames");
-        while(datalist.firstChild){
-            datalist.removeChild(datalist.firstChild);
+        var datalist1 = document.getElementById("optionNames");
+        var au;
+        while(datalist1.firstChild){
+            datalist1.removeChild(datalist1.firstChild);
         }
         for (var author of authors){
-            var option = document.createElement("option");
-            option.value = author;
-            datalist.appendChild(option);
+            var option1 = document.createElement("option");
+            option1.value = author;
+            datalist1.appendChild(option1);
+            au = author;
         }
+        document.getElementById("nameFilter").value = au;
+
+        var hashtags = control.getHashtags();
+        var datalist2 = document.getElementById("optionHashtags");
+        var ha;
+        while(datalist2.firstChild){
+            datalist2.removeChild(datalist2.firstChild);
+        }
+        for (var hashtag of hashtags){
+            var option2 = document.createElement("option");
+            option2.value = hashtag;
+            datalist2.appendChild(option2);
+            ha = hashtag;
+        }
+        document.getElementById("hashtagFilter").value = ha;
 
         while (postList.firstChild) {
             postList.removeChild(postList.firstChild);
@@ -101,41 +118,23 @@
         update();
     }
 
+    function addHashtag(id, hashtag){
+        control.addHashtag(id, hashtag);
+        posts = control.getPhotoPosts();
+        update();
+    }
+
     return{
         showPhotoPosts : showPhotoPosts,
         addPhotoPost: addPhotoPost,
         deletePhotoPost: deletePhotoPost,
         editPhotoPost: editPhotoPost,
-        likePhotoPost: likePhotoPost
+        likePhotoPost: likePhotoPost,
+        userName: userName
     }
 
 }());
 
 module.showPhotoPosts();
-
-console.log("added valid post");
-console.log(module.addPhotoPost({
-    id: "21",
-    description: "Hello, it is me",
-    date: new Date("2018","3","3","4","18"),
-    author: "Dmitry_Kurch",
-    photoLink: "../images/Dima1.jpg",
-    hashtags: ["#hello"],
-    likes:["Jeremy_Clarkson"]
-}));
-console.log("edit post №3");
-console.log(module.editPhotoPost("19",{
-    description: "Changed post",
-    hashtags:["#newhashtag"]
-}));
-console.log("removing post id №6 ");
-console.log(module.deletePhotoPost("6"));
-module.likePhotoPost("21");
-/*
-console.log(module.showPhotoPosts(0,10,{
-    author:"Bear_Grylls",
-    date: new Date("2018","2","11")
-}));
-*/
 
 

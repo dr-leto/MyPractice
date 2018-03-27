@@ -197,22 +197,23 @@
     }
 
     function checkId (post){
-        return ((post.id!="") && (typeof post.id == "string"))
+        return (post.id !== undefined)
     }
     function checkDescription(post){
-        return ((post.description!="") && (typeof post.description=="string"))
+        return (typeof post.description=="string")
     }
     function checkDate(post){
-        return post.date instanceof Date;
+        var temp = typeof post.date;
+        return (post.date instanceof Date);
     }
     function checkAuthor(post){
-        return ((post.author!="") && (typeof post.author=="string"))
+        return (typeof post.author=="string")
     }
     function checkPhotoLink(post){
         return ((post.photoLink!="") && (typeof post.photoLink == "string"))
     }
     function checkHashtags(post){
-        return post.hashtags instanceof Array;
+        return (post.hashtags instanceof Array)
     }
     function checkLikes(post){
         return post.likes instanceof Array;
@@ -288,19 +289,17 @@
                 });
             }
             var tempPosts = [];
-            if (checkHashtags(filter)){
-                for (var k=0;k<filter.hashtags.length;k++)
-                {
+            if (typeof filter.hashtag === "string"){
                     for (var i=0;i<newPosts.length;i++) {
                         for (var j = 0; j < newPosts[i].hashtags.length; j++) {
-                            if (newPosts[i].hashtags[j]===filter.hashtags[k])
+                            if (newPosts[i].hashtags[j]===filter.hashtag)
                                 tempPosts.push(newPosts[i]);
                         }
                     }
-                }
                 newPosts = tempPosts;
             }
             newPosts.sort(comporator);
+            var t = newPosts.slice(skip,top);
             return newPosts.slice(skip,top);
         }
     }
@@ -311,6 +310,15 @@
             authors.add(p.author);
         }
         return authors;
+    }
+    function getHashtags(){
+        var hashtags = new Set();
+        for (var p of posts){
+            for (var h of p.hashtags){
+                hashtags.add(h);
+            }
+        }
+        return hashtags;
     }
 
     function likePhotoPost(id, user){
@@ -328,6 +336,11 @@
         }
     }
 
+    function addHashtag(id, hashtag){
+        var post = getPhotoPost(id);
+        post.hashtags.push(hashtag);
+    }
+
 
     return{
         getPhotoPost: getPhotoPost,
@@ -337,6 +350,9 @@
         removePhotoPost: removePhotoPost,
         getPhotoPosts:getPhotoPosts,
         getAuthors: getAuthors,
-        likePhotoPost: likePhotoPost
+        likePhotoPost: likePhotoPost,
+        getHashtags: getHashtags,
+        addHashtag: addHashtag,
+        posts: posts
     }
 }());
