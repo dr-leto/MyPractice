@@ -326,12 +326,26 @@ body{
     font-size:6vw;
     margin-top:20vh;
 }
-.divDoubleHelp{
-    width:30vw;
-}
+.divDoubleHelpLogin{
+     width:30vw;
+ }
 .divLoginText{
     float:left;
     margin-right:1vw;
     font-size: 2vw;
     font-family: 'Patrick Hand', cursive;
+}
+
+.divDoubleHelpError{
+    width:50vw;
+    margin-top:20vh;
+}
+.divErrorName{
+    float:left;
+    margin-left:1vw;
+    font-size: 10vw;
+    font-family: 'Patrick Hand', cursive;
+}
+.errorImage{
+    float:left;
 }

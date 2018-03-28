@@ -2,6 +2,8 @@
 
     document.getElementById("displayFilter").addEventListener("click",displayFilter);
     document.getElementById("buttonSubmitFilter").addEventListener("click", filterBy);
+    document.getElementById("buttonLogin").addEventListener("click", login);
+    document.getElementById("buttonLogout").addEventListener("click", logout);
 
     function displayFilter() {
         document.getElementById("filter").style.display = "block";
@@ -22,5 +24,12 @@
             date: date,
             hashtag: hashtag
         });
+    }
+    function login(){
+        window.location = "login.html";
+    }
+    function logout(){
+        if (window.confim("Are you sure to log out? "))
+        module.setUserNull();
     }
 }());

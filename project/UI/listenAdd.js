@@ -1,4 +1,4 @@
-;(function(){
+;var listenerAdd =(function(){
     var newPost = {
         id: control.posts.length + 1,
         description: "",
@@ -36,7 +36,7 @@
         if (!control.validatePhotoPost(newPost)){
             document.getElementById("modalWindow").style.display = "none";
             document.getElementById("body").style.overflow = "auto";
-            console.log("INVALID_POST!!!");
+            window.location = "error.html";
         }
         else{
             newPost.description = document.getElementById("newDescription").value;

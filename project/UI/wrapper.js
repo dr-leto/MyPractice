@@ -1,6 +1,6 @@
 ;var module =(function(){
 
-    var userName = "Dmitry_Kurch";
+    var userName ;
     var posts = control.getPhotoPosts();
     var postList = document.querySelector(".divMain");
 
@@ -44,12 +44,19 @@
     }
 
     function update(){
-        if (userName!==null){
+        if (userName!==undefined){
             document.getElementById("name").innerText = userName;
             document.getElementById("buttonLogout").style.display = "block";
             document.getElementById("buttonLogin").style.display = "none";
             document.getElementById("buttonAddPhotoPost").style.display = "block";
             document.getElementById("iconAddPhoto").style.display = "block";
+        }
+        else{
+            document.getElementById("name").innerText = "";
+            document.getElementById("buttonLogout").style.display = "none";
+            document.getElementById("buttonLogin").style.display = "block";
+            document.getElementById("buttonAddPhotoPost").style.display = "none";
+            document.getElementById("iconAddPhoto").style.display = "none";
         }
 
         var authors = control.getAuthors();
@@ -124,12 +131,24 @@
         update();
     }
 
+    function setUserNull(){
+        userName = undefined;
+        posts = control.getPhotoPosts();
+        update();
+    }
+
+    function setUser(user){
+        userName = user;
+    }
+
     return{
         showPhotoPosts : showPhotoPosts,
         addPhotoPost: addPhotoPost,
         deletePhotoPost: deletePhotoPost,
         editPhotoPost: editPhotoPost,
         likePhotoPost: likePhotoPost,
+        setUserNull: setUserNull,
+        setUser: setUser,
         userName: userName
     }
 
