@@ -43,10 +43,10 @@
     <div class="divBottomHelper"></div>
 </div>
 
-<aside class = "asideFilter" id = "filter">
+<aside id = "filter" class = "asideFilter">
     <div>
         <div class = "divFilterElement">
-            <input id = "hashtagFilter" class = "filterText" list ="optionHashtags" type = "text" name = "hashtagFilter">
+            <input id = "hashtagFilter" class = "filterText" list ="optionHashtags" type = "text" value = "#">
             <datalist id="optionHashtags">
                 <option value="#niceweather">
                 <option value="#lovenature">
@@ -54,16 +54,16 @@
                 <option value="#goodtime">
                 <option value="#young&free">
             </datalist>
-            <input id = "checkHashtagFilter" class = "checkbox" type = "checkbox" name = "checkHashtagFilter">
+            <input id = "checkHashtagFilter" class = "checkbox" type = "checkbox">
         </div>
         <div class = "divFilterElement">
             <input id = "dateFilter" class = "filterText" type = "date" name = "dateFilter" >
-            <input id = "checkDateFilter" class = "checkbox" type = "checkbox" name = "checkDateFilter">
+            <input id = "checkDateFilter" class = "checkbox" type = "checkbox" >
         </div>
         <div class = "divFilterElement">
-            <input id = "nameFilter" class = "filterText" list="optionNames" type = "text" name = "nameFilter">
+            <input id = "nameFilter" class = "filterText" list="optionNames" type = "text">
             <datalist id="optionNames"></datalist>
-            <input id ="checkNameFilter" class = "checkbox" type = "checkbox" name = "checkNameFilter">
+            <input id ="checkNameFilter" class = "checkbox" type = "checkbox">
         </div>
         <div class = "divButtonFilter">
             <input id ="buttonSubmitFilter" class = "buttonSubmit" type = "submit" value = "Submit">
@@ -82,15 +82,15 @@
                     <img src = "../images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
                 </figure>
                 <div class ="postElement">
-                    <button class = "buttonLike">
+                    <button id = "buttonLike" class = "buttonLike">
                         <i id = "iconLike" class="fas fa-heart" style = "display:none"></i>
                         <i id = "iconNoLike" class="far fa-heart"></i>
                     </button>
                     <p class = "numberLike"></p>
-                    <button class = "buttonEdit">
+                    <button id = "buttonEdit" class = "buttonEdit">
                         edit
                     </button>
-                    <button class = "buttonDelete">
+                    <button id ="buttonDelete" class = "buttonDelete">
                         delete
                     </button>
                     <div class = "divHashtags">

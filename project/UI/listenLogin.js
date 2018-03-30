@@ -7,8 +7,8 @@
        var authors = control.getAuthors();
        for ( var author of authors){
            if (author === name){
-               module.setUser(name);
                window.location = "index.html";
+               window.userName = name;
                check = true;
            }
        }

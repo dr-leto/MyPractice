@@ -1,6 +1,8 @@
 ;var control =(function(){
+    window.userName = "Bear_Grylls";
     var posts = [
         {
+            active: true,
             id: "1",
             description: "My usual morning wood",
             date: new Date("2018","2","7","4","19"),
@@ -10,6 +12,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "2",
             description: "I want you to for US army",
             date: new Date("2018","2","9","4","20"),
@@ -19,6 +22,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "3",
             description: "Me and ma nigga",
             date: new Date("2018","2","8","4","21"),
@@ -28,6 +32,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "4",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","10","4","19"),
@@ -37,6 +42,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "5",
             description: "Follow me",
             date: new Date("2018","2","21","4","19"),
@@ -46,6 +52,7 @@
             likes: ["Dmitry_Kurch","Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "6",
             description: "My usual morning wood",
             date: new Date("2018","2","5","4","19"),
@@ -55,6 +62,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "7",
             description: "I want you to for US army",
             date: new Date("2018","2","8","4","20"),
@@ -64,6 +72,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "8",
             description: "Me and ma nigga",
             date: new Date("2018","2","4","4","21"),
@@ -73,6 +82,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "9",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","15","4","19"),
@@ -82,6 +92,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "10",
             description: "Follow me",
             date: new Date("2018","2","11","4","19"),
@@ -91,6 +102,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "11",
             description: "My usual morning wood",
             date: new Date("2018","2","11","4","19"),
@@ -100,6 +112,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "12",
             description: "I want you to for US army",
             date: new Date("2018","2","10","4","20"),
@@ -109,6 +122,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "13",
             description: "Me and ma nigga",
             date: new Date("2018","2","9","4","21"),
@@ -118,6 +132,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "14",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","8","4","19"),
@@ -127,6 +142,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "15",
             description: "Follow me",
             date: new Date("2018","2","7","4","19"),
@@ -136,6 +152,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "16",
             description: "My car",
             date: new Date("2018","1","30","1","19"),
@@ -145,6 +162,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "17",
             description: "My friend",
             date: new Date("2018","1","13","1","19"),
@@ -154,6 +172,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "18",
             description: "Going somewhere",
             date: new Date("2018","1","11","1","19"),
@@ -163,6 +182,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "19",
             description: "A flight to Russia",
             date: new Date("2018","1","10","1","19"),
@@ -172,6 +192,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "20",
             description: "Australia coast",
             date: new Date("2018","1","7","1","19"),
@@ -260,20 +281,31 @@
     }
 
     function removePhotoPost (id){
-        for (var i=0;i<posts.length;i++)
-            if (posts[i].id===id) {
-                posts.splice(i, 1);
-                return true;
-            }
+        var post = getPhotoPost(id);
+        if (post!==undefined || post!==null){
+            post.active = false;
+            return true;
+        }
         return false;
     }
 
     function getPhotoPosts(skip, top, filter){
+        var finalPosts =[];
         skip = skip || 0;
         top = top || 10;
-        if (filter==undefined) {
+        if (filter===undefined) {
             posts.sort(comporator);
-            return posts.slice(skip, top);
+            for (var i = skip;i<skip+top;i++) {
+                if (i < posts.length) {
+                    if (posts[i].active) {
+                        finalPosts.push(posts[i]);
+                    }
+                    else {
+                        top++;
+                    }
+                }
+            }
+            return finalPosts;
         }
         else
         {
@@ -292,15 +324,14 @@
             if (typeof filter.hashtag === "string"){
                     for (var i=0;i<newPosts.length;i++) {
                         for (var j = 0; j < newPosts[i].hashtags.length; j++) {
-                            if (newPosts[i].hashtags[j]===filter.hashtag)
+                            if (newPosts[i].hashtags[j]===filter.hashtag && newPosts[i].active)
                                 tempPosts.push(newPosts[i]);
                         }
                     }
                 newPosts = tempPosts;
             }
             newPosts.sort(comporator);
-            var t = newPosts.slice(skip,top);
-            return newPosts.slice(skip,top);
+            return newPosts;
         }
     }
 
@@ -340,7 +371,6 @@
         var post = getPhotoPost(id);
         post.hashtags.push(hashtag);
     }
-
 
     return{
         getPhotoPost: getPhotoPost,

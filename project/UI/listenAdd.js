@@ -1,9 +1,9 @@
 ;var listenerAdd =(function(){
     var newPost = {
-        id: control.posts.length + 1,
+        id: (control.posts.length + 1).toString(),
         description: "",
         date: new Date(),
-        author: module.userName,
+        author: window.userName,
         photoLink: undefined,
         hashtags : [],
         likes: []
@@ -16,7 +16,7 @@
     function addPhotoPost(){
         document.getElementById("modalWindow").style.display = "block";
         document.getElementById("body").style.overflow = "hidden";
-        document.getElementById("newPostAuthor").innerText = module.userName;
+        document.getElementById("newPostAuthor").innerText = window.userName;
         document.getElementById("newHashtags").innerText = "";
         document.getElementById("newPhotoURL").value = "URL";
         document.getElementById("newImage").src = "../images/Drag&drop.jpg";

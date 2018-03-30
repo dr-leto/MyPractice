@@ -1,13 +1,12 @@
 ;var module =(function(){
 
-    var userName ;
     var posts = control.getPhotoPosts();
     var postList = document.querySelector(".divMain");
 
     function createPhotoPost(postConfig){
         var hit = false;
         for (var like of postConfig.likes){
-            if (like===userName) {
+            if (like===window.userName) {
                 document.getElementById("iconLike").style.display = "block";
                 document.getElementById("iconNoLike").style.display = "none";
                 hit = true;
@@ -21,7 +20,8 @@
 
         var post = document.getElementById("templatePost").cloneNode(true);
         post.className = "none";
-        post.id = null;
+        post.id = postConfig.id;
+
 
         post.querySelector(".divNamePost").innerText = postConfig.author;
         post.querySelector(".divDescriptionPost").innerText = postConfig.description;
@@ -34,7 +34,7 @@
         }
         post.querySelector(".divHashtags").innerText = hashtags;
 
-        if (postConfig.author === userName){
+        if (postConfig.author === window.userName){
             post.querySelector(".buttonEdit").style.display = "block";
             post.querySelector(".buttonDelete").style.display = "block";
         }
@@ -44,8 +44,8 @@
     }
 
     function update(){
-        if (userName!==undefined){
-            document.getElementById("name").innerText = userName;
+        if (window.userName!==undefined){
+            document.getElementById("name").innerText = window.userName;
             document.getElementById("buttonLogout").style.display = "block";
             document.getElementById("buttonLogin").style.display = "none";
             document.getElementById("buttonAddPhotoPost").style.display = "block";
@@ -61,7 +61,6 @@
 
         var authors = control.getAuthors();
         var datalist1 = document.getElementById("optionNames");
-        var au;
         while(datalist1.firstChild){
             datalist1.removeChild(datalist1.firstChild);
         }
@@ -69,13 +68,10 @@
             var option1 = document.createElement("option");
             option1.value = author;
             datalist1.appendChild(option1);
-            au = author;
         }
-        document.getElementById("nameFilter").value = au;
 
         var hashtags = control.getHashtags();
         var datalist2 = document.getElementById("optionHashtags");
-        var ha;
         while(datalist2.firstChild){
             datalist2.removeChild(datalist2.firstChild);
         }
@@ -83,9 +79,7 @@
             var option2 = document.createElement("option");
             option2.value = hashtag;
             datalist2.appendChild(option2);
-            ha = hashtag;
         }
-        document.getElementById("hashtagFilter").value = ha;
 
         while (postList.firstChild) {
             postList.removeChild(postList.firstChild);
@@ -120,7 +114,7 @@
     }
 
     function likePhotoPost(id){
-        control.likePhotoPost(id,userName);
+        control.likePhotoPost(id,window.userName);
         posts = control.getPhotoPosts();
         update();
     }
@@ -131,25 +125,13 @@
         update();
     }
 
-    function setUserNull(){
-        userName = undefined;
-        posts = control.getPhotoPosts();
-        update();
-    }
-
-    function setUser(user){
-        userName = user;
-    }
-
     return{
         showPhotoPosts : showPhotoPosts,
         addPhotoPost: addPhotoPost,
         deletePhotoPost: deletePhotoPost,
         editPhotoPost: editPhotoPost,
         likePhotoPost: likePhotoPost,
-        setUserNull: setUserNull,
-        setUser: setUser,
-        userName: userName
+        update: update
     }
 
 }());
