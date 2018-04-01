@@ -92,6 +92,13 @@
 
     function showPhotoPosts(skip, top, filter){
         posts = control.getPhotoPosts(skip,top,filter);
+        if (top >= posts.length){
+            document.getElementById("buttonLoadMore").style = "display:none";
+        }
+        else{
+            document.getElementById("buttonLoadMore").style = "display:block";
+        }
+
         update();
     }
 
@@ -101,9 +108,9 @@
         update();
     }
 
-    function deletePhotoPost(id){
+    function deletePhotoPost(id, postConfig){
         control.removePhotoPost(id);
-        posts = control.getPhotoPosts();
+        posts = control.getPhotoPosts(0,10,postConfig);
         update();
     }
 
@@ -113,9 +120,9 @@
         update();
     }
 
-    function likePhotoPost(id){
+    function likePhotoPost(id, postConfig){
         control.likePhotoPost(id,window.userName);
-        posts = control.getPhotoPosts();
+        posts = control.getPhotoPosts(0,10,postConfig);
         update();
     }
 

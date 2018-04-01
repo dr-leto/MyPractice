@@ -252,6 +252,7 @@
 
     function addPhotoPost(post){
         if (validatePhotoPost(post)) {
+            post.active = true;
             posts.push(post);
             return true;
         }
@@ -282,7 +283,7 @@
 
     function removePhotoPost (id){
         var post = getPhotoPost(id);
-        if (post!==undefined || post!==null){
+        if (post!==undefined && post!==null){
             post.active = false;
             return true;
         }
