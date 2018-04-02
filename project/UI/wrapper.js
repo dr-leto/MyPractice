@@ -6,7 +6,7 @@
     function createPhotoPost(postConfig){
         var hit = false;
         for (var like of postConfig.likes){
-            if (like===window.userName) {
+            if (like===control.userName) {
                 document.getElementById("iconLike").style.display = "block";
                 document.getElementById("iconNoLike").style.display = "none";
                 hit = true;
@@ -25,7 +25,8 @@
 
         post.querySelector(".divNamePost").innerText = postConfig.author;
         post.querySelector(".divDescriptionPost").innerText = postConfig.description;
-        post.querySelector(".divDatePost").innerText = postConfig.date.toDateString();
+        var date = new Date(postConfig.date);
+        post.querySelector(".divDatePost").innerText = date.toDateString();
         post.querySelector(".image").src = postConfig.photoLink;
         post.querySelector(".numberLike").innerText = postConfig.likes.length;
         var hashtags = "";
@@ -34,7 +35,7 @@
         }
         post.querySelector(".divHashtags").innerText = hashtags;
 
-        if (postConfig.author === window.userName){
+        if (postConfig.author === control.userName){
             post.querySelector(".buttonEdit").style.display = "block";
             post.querySelector(".buttonDelete").style.display = "block";
         }
@@ -44,8 +45,9 @@
     }
 
     function update(){
-        if (window.userName!==undefined){
-            document.getElementById("name").innerText = window.userName;
+        control.userName = JSON.parse(localStorage.getItem("user"));
+        if (control.userName!=="null"){
+            document.getElementById("name").innerText = control.userName;
             document.getElementById("buttonLogout").style.display = "block";
             document.getElementById("buttonLogin").style.display = "none";
             document.getElementById("buttonAddPhotoPost").style.display = "block";
@@ -102,9 +104,9 @@
         update();
     }
 
-    function addPhotoPost(post){
+    function addPhotoPost(post, postConfig){
         control.addPhotoPost(post);
-        posts = control.getPhotoPosts();
+        posts = control.getPhotoPosts(0,10,postConfig);
         update();
     }
 
@@ -121,7 +123,7 @@
     }
 
     function likePhotoPost(id, postConfig){
-        control.likePhotoPost(id,window.userName);
+        control.likePhotoPost(id,control.userName);
         posts = control.getPhotoPosts(0,10,postConfig);
         update();
     }

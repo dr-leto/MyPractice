@@ -1,6 +1,6 @@
 ;var control =(function(){
-    window.userName = "Bear_Grylls";
-    var posts = [
+    var user = "null";
+    var photoPosts = [
         {
             active: true,
             id: "1",
@@ -203,6 +203,19 @@
         }
     ];
 
+    if(!localStorage.getItem("photoPosts")){
+        localStorage.clear();
+        localStorage.setItem("photoPosts", JSON.stringify(photoPosts));
+        localStorage.setItem("user", JSON.stringify(user));
+    }
+
+    var posts = JSON.parse(localStorage.getItem("photoPosts"));
+    var userName = JSON.parse(localStorage.getItem("user"));
+
+    function saveChanges() {
+        localStorage.setItem("photoPosts", JSON.stringify(posts));
+    }
+
     function getPhotoPost (id){
         return posts.find(function (obj){
             return obj.id === id;
@@ -225,7 +238,7 @@
     }
     function checkDate(post){
         var temp = typeof post.date;
-        return (post.date instanceof Date);
+        return (post.date !== undefined);
     }
     function checkAuthor(post){
         return (typeof post.author=="string")
@@ -254,6 +267,7 @@
         if (validatePhotoPost(post)) {
             post.active = true;
             posts.push(post);
+            saveChanges();
             return true;
         }
         return false;
@@ -276,6 +290,7 @@
             if (checkLikes(post)) {
                 myPost.likes = post.likes;
             }
+            saveChanges();
             return true;
         }
         return false;
@@ -285,6 +300,7 @@
         var post = getPhotoPost(id);
         if (post!==undefined && post!==null){
             post.active = false;
+            saveChanges();
             return true;
         }
         return false;
@@ -332,7 +348,17 @@
                 newPosts = tempPosts;
             }
             newPosts.sort(comporator);
-            return newPosts;
+            for (var i = skip;i<skip+top;i++) {
+                if (i < newPosts.length) {
+                    if (newPosts[i].active) {
+                        finalPosts.push(newPosts[i]);
+                    }
+                    else {
+                        top++;
+                    }
+                }
+            }
+            return finalPosts;
         }
     }
 
@@ -354,23 +380,27 @@
     }
 
     function likePhotoPost(id, user){
-        var post = getPhotoPost(id);
-        var remove = false;
-        for (var i=0;i<post.likes.length;i++){
-            if (user===post.likes[i]) {
-                post.likes.splice(i, 1);
-                remove = true;
-                break;
+        if (user!=="null") {
+            var post = getPhotoPost(id);
+            var remove = false;
+            for (var i = 0; i < post.likes.length; i++) {
+                if (user === post.likes[i]) {
+                    post.likes.splice(i, 1);
+                    remove = true;
+                    break;
+                }
             }
-        }
-        if (!remove){
-            post.likes.push(user);
+            if (!remove) {
+                post.likes.push(user);
+            }
+            saveChanges();
         }
     }
 
     function addHashtag(id, hashtag){
         var post = getPhotoPost(id);
         post.hashtags.push(hashtag);
+        saveChanges();
     }
 
     return{
@@ -384,6 +414,11 @@
         likePhotoPost: likePhotoPost,
         getHashtags: getHashtags,
         addHashtag: addHashtag,
+        saveChanges: saveChanges,
+        username: userName,
         posts: posts
     }
 }());
+
+//control.posts = JSON.parse(localStorage.getItem("photoPosts"));
+control.userName = JSON.parse(localStorage.getItem("user"));

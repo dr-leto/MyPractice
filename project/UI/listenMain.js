@@ -31,6 +31,7 @@
         }
         else {
             module.showPhotoPosts(0, postNumber, postConfig);
+            listenerAdd.setPostConfig(postConfig);
         }
         document.getElementById("filter").style.display = "none";
     }
@@ -39,7 +40,8 @@
     }
     function logout(){
         if (window.confirm("Are you sure to log out? ")) {
-            window.userName = undefined;
+            var user = "null";
+            localStorage.setItem("user",JSON.stringify(user));
             module.update();
         }
     }
@@ -97,6 +99,7 @@
         document.getElementById("newPhotoURL").value =post.photoLink;
         document.getElementById("newImage").src = post.photoLink;
         listenerAdd.editPost(post);
+        listenerAdd.setPostConfig(postConfig);
     }
 
     function loadMorePosts(){

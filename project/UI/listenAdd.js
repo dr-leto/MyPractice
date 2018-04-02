@@ -1,5 +1,6 @@
 ;var listenerAdd =(function(){
     var newPost;
+    var postConfig;
     document.getElementById("buttonAddPhotoPost").addEventListener("click", addPhotoPost);
     document.getElementById("buttonLoadPhoto").addEventListener("click",loadPhoto);
     document.getElementById("addNewHashtag").addEventListener("click", addNewHashtag);
@@ -7,17 +8,18 @@
 
     function addPhotoPost(){
         newPost = {
+            active: true,
             id: (control.posts.length + 1).toString(),
             description: "",
             date: new Date(),
-            author: window.userName,
+            author: control.userName,
             photoLink: undefined,
             hashtags : [],
             likes: []
         };
         document.getElementById("modalWindow").style.display = "block";
         document.getElementById("body").style.overflow = "hidden";
-        document.getElementById("newPostAuthor").innerText = window.userName;
+        document.getElementById("newPostAuthor").innerText = control.userName;
         document.getElementById("newDescription").value = "Add description here...";
         document.getElementById("newHashtags").innerText = "";
         document.getElementById("newPhotoURL").value = "URL";
@@ -46,17 +48,22 @@
             module.deletePhotoPost(newPost.id);
             var post = Object.assign({},newPost);
             post.id = (control.posts.length + 1).toString();
-            module.addPhotoPost(post);
+            module.addPhotoPost(post, postConfig);
             document.getElementById("modalWindow").style.display = "none";
             document.getElementById("body").style.overflow = "auto";
         }
     }
 
-    function editPost(postConfig){
-        newPost = postConfig;
+    function editPost(post){
+        newPost = post;
+    }
+
+    function setPostConfig(postC){
+        postConfig = postC;
     }
 
     return{
-        editPost: editPost
+        editPost: editPost,
+        setPostConfig: setPostConfig
     }
 }());

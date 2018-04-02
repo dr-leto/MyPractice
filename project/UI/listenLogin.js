@@ -8,7 +8,7 @@
        for ( var author of authors){
            if (author === name){
                window.location = "index.html";
-               window.userName = name;
+               localStorage.setItem("user",JSON.stringify(name));
                check = true;
            }
        }
