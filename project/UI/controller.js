@@ -1,6 +1,8 @@
 ;var control =(function(){
-    var posts = [
+    var user = "null";
+    var photoPosts = [
         {
+            active: true,
             id: "1",
             description: "My usual morning wood",
             date: new Date("2018","2","7","4","19"),
@@ -10,6 +12,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "2",
             description: "I want you to for US army",
             date: new Date("2018","2","9","4","20"),
@@ -19,6 +22,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "3",
             description: "Me and ma nigga",
             date: new Date("2018","2","8","4","21"),
@@ -28,6 +32,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "4",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","10","4","19"),
@@ -37,6 +42,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "5",
             description: "Follow me",
             date: new Date("2018","2","21","4","19"),
@@ -46,6 +52,7 @@
             likes: ["Dmitry_Kurch","Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "6",
             description: "My usual morning wood",
             date: new Date("2018","2","5","4","19"),
@@ -55,6 +62,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "7",
             description: "I want you to for US army",
             date: new Date("2018","2","8","4","20"),
@@ -64,6 +72,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "8",
             description: "Me and ma nigga",
             date: new Date("2018","2","4","4","21"),
@@ -73,6 +82,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "9",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","15","4","19"),
@@ -82,6 +92,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "10",
             description: "Follow me",
             date: new Date("2018","2","11","4","19"),
@@ -91,6 +102,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "11",
             description: "My usual morning wood",
             date: new Date("2018","2","11","4","19"),
@@ -100,6 +112,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "12",
             description: "I want you to for US army",
             date: new Date("2018","2","10","4","20"),
@@ -109,6 +122,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "13",
             description: "Me and ma nigga",
             date: new Date("2018","2","9","4","21"),
@@ -118,6 +132,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "14",
             description: "You're not you when you are hungry",
             date: new Date("2018","2","8","4","19"),
@@ -127,6 +142,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "15",
             description: "Follow me",
             date: new Date("2018","2","7","4","19"),
@@ -136,6 +152,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "16",
             description: "My car",
             date: new Date("2018","1","30","1","19"),
@@ -145,6 +162,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "17",
             description: "My friend",
             date: new Date("2018","1","13","1","19"),
@@ -154,6 +172,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "18",
             description: "Going somewhere",
             date: new Date("2018","1","11","1","19"),
@@ -163,6 +182,7 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "19",
             description: "A flight to Russia",
             date: new Date("2018","1","10","1","19"),
@@ -172,6 +192,7 @@
             likes: ["Dmitry_Kurch", "Bear_Grylls", "Jeremy_Clarkson"]
         },
         {
+            active: true,
             id: "20",
             description: "Australia coast",
             date: new Date("2018","1","7","1","19"),
@@ -181,6 +202,19 @@
             likes: ["Bear_Grylls", "Jeremy_Clarkson"]
         }
     ];
+
+    if(!localStorage.getItem("photoPosts")){
+        localStorage.clear();
+        localStorage.setItem("photoPosts", JSON.stringify(photoPosts));
+        localStorage.setItem("user", JSON.stringify(user));
+    }
+
+    var posts = JSON.parse(localStorage.getItem("photoPosts"));
+    var userName = JSON.parse(localStorage.getItem("user"));
+
+    function saveChanges() {
+        localStorage.setItem("photoPosts", JSON.stringify(posts));
+    }
 
     function getPhotoPost (id){
         return posts.find(function (obj){
@@ -197,22 +231,23 @@
     }
 
     function checkId (post){
-        return ((post.id!="") && (typeof post.id == "string"))
+        return (post.id !== undefined)
     }
     function checkDescription(post){
-        return ((post.description!="") && (typeof post.description=="string"))
+        return (typeof post.description=="string")
     }
     function checkDate(post){
-        return post.date instanceof Date;
+        var temp = typeof post.date;
+        return (post.date !== undefined);
     }
     function checkAuthor(post){
-        return ((post.author!="") && (typeof post.author=="string"))
+        return (typeof post.author=="string")
     }
     function checkPhotoLink(post){
         return ((post.photoLink!="") && (typeof post.photoLink == "string"))
     }
     function checkHashtags(post){
-        return post.hashtags instanceof Array;
+        return (post.hashtags instanceof Array)
     }
     function checkLikes(post){
         return post.likes instanceof Array;
@@ -230,7 +265,9 @@
 
     function addPhotoPost(post){
         if (validatePhotoPost(post)) {
+            post.active = true;
             posts.push(post);
+            saveChanges();
             return true;
         }
         return false;
@@ -253,26 +290,39 @@
             if (checkLikes(post)) {
                 myPost.likes = post.likes;
             }
+            saveChanges();
             return true;
         }
         return false;
     }
 
     function removePhotoPost (id){
-        for (var i=0;i<posts.length;i++)
-            if (posts[i].id===id) {
-                posts.splice(i, 1);
-                return true;
-            }
+        var post = getPhotoPost(id);
+        if (post!==undefined && post!==null){
+            post.active = false;
+            saveChanges();
+            return true;
+        }
         return false;
     }
 
     function getPhotoPosts(skip, top, filter){
+        var finalPosts =[];
         skip = skip || 0;
         top = top || 10;
-        if (filter==undefined) {
+        if (filter===undefined) {
             posts.sort(comporator);
-            return posts.slice(skip, top);
+            for (var i = skip;i<skip+top;i++) {
+                if (i < posts.length) {
+                    if (posts[i].active) {
+                        finalPosts.push(posts[i]);
+                    }
+                    else {
+                        top++;
+                    }
+                }
+            }
+            return finalPosts;
         }
         else
         {
@@ -288,20 +338,27 @@
                 });
             }
             var tempPosts = [];
-            if (checkHashtags(filter)){
-                for (var k=0;k<filter.hashtags.length;k++)
-                {
+            if (typeof filter.hashtag === "string"){
                     for (var i=0;i<newPosts.length;i++) {
                         for (var j = 0; j < newPosts[i].hashtags.length; j++) {
-                            if (newPosts[i].hashtags[j]===filter.hashtags[k])
+                            if (newPosts[i].hashtags[j]===filter.hashtag && newPosts[i].active)
                                 tempPosts.push(newPosts[i]);
                         }
                     }
-                }
                 newPosts = tempPosts;
             }
             newPosts.sort(comporator);
-            return newPosts.slice(skip,top);
+            for (var i = skip;i<skip+top;i++) {
+                if (i < newPosts.length) {
+                    if (newPosts[i].active) {
+                        finalPosts.push(newPosts[i]);
+                    }
+                    else {
+                        top++;
+                    }
+                }
+            }
+            return finalPosts;
         }
     }
 
@@ -312,22 +369,39 @@
         }
         return authors;
     }
-
-    function likePhotoPost(id, user){
-        var post = getPhotoPost(id);
-        var remove = false;
-        for (var i=0;i<post.likes.length;i++){
-            if (user===post.likes[i]) {
-                post.likes.splice(i, 1);
-                remove = true;
-                break;
+    function getHashtags(){
+        var hashtags = new Set();
+        for (var p of posts){
+            for (var h of p.hashtags){
+                hashtags.add(h);
             }
         }
-        if (!remove){
-            post.likes.push(user);
+        return hashtags;
+    }
+
+    function likePhotoPost(id, user){
+        if (user!=="null") {
+            var post = getPhotoPost(id);
+            var remove = false;
+            for (var i = 0; i < post.likes.length; i++) {
+                if (user === post.likes[i]) {
+                    post.likes.splice(i, 1);
+                    remove = true;
+                    break;
+                }
+            }
+            if (!remove) {
+                post.likes.push(user);
+            }
+            saveChanges();
         }
     }
 
+    function addHashtag(id, hashtag){
+        var post = getPhotoPost(id);
+        post.hashtags.push(hashtag);
+        saveChanges();
+    }
 
     return{
         getPhotoPost: getPhotoPost,
@@ -337,6 +411,14 @@
         removePhotoPost: removePhotoPost,
         getPhotoPosts:getPhotoPosts,
         getAuthors: getAuthors,
-        likePhotoPost: likePhotoPost
+        likePhotoPost: likePhotoPost,
+        getHashtags: getHashtags,
+        addHashtag: addHashtag,
+        saveChanges: saveChanges,
+        username: userName,
+        posts: posts
     }
 }());
+
+//control.posts = JSON.parse(localStorage.getItem("photoPosts"));
+control.userName = JSON.parse(localStorage.getItem("user"));
