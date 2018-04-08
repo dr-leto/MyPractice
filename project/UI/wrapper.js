@@ -62,25 +62,25 @@
         }
 
         var authors = control.getAuthors();
-        var datalist1 = document.getElementById("optionNames");
-        while(datalist1.firstChild){
-            datalist1.removeChild(datalist1.firstChild);
+        var datalistNames = document.getElementById("optionNames");
+        while(datalistNames.firstChild){
+            datalistNames.removeChild(datalistNames.firstChild);
         }
         for (var author of authors){
-            var option1 = document.createElement("option");
-            option1.value = author;
-            datalist1.appendChild(option1);
+            var optionNames = document.createElement("option");
+            optionNames.value = author;
+            datalistNames.appendChild(optionNames);
         }
 
         var hashtags = control.getHashtags();
-        var datalist2 = document.getElementById("optionHashtags");
-        while(datalist2.firstChild){
-            datalist2.removeChild(datalist2.firstChild);
+        var datalistHashtags = document.getElementById("optionHashtags");
+        while(datalistHashtags.firstChild){
+            datalistHashtags.removeChild(datalistHashtags.firstChild);
         }
         for (var hashtag of hashtags){
-            var option2 = document.createElement("option");
-            option2.value = hashtag;
-            datalist2.appendChild(option2);
+            var optionHashtags = document.createElement("option");
+            optionHashtags.value = hashtag;
+            datalistHashtags.appendChild(optionHashtags);
         }
 
         while (postList.firstChild) {
@@ -93,8 +93,9 @@
     }
 
     function showPhotoPosts(skip, top, filter){
+        var checkPosts = control.getPhotoPosts(skip, 100, filter);
         posts = control.getPhotoPosts(skip,top,filter);
-        if (top >= posts.length){
+        if (top >= checkPosts.length){
             document.getElementById("buttonLoadMore").style = "display:none";
         }
         else{
@@ -110,9 +111,9 @@
         update();
     }
 
-    function deletePhotoPost(id, postConfig){
+    function deletePhotoPost(id, postConfig, postNumber){
         control.removePhotoPost(id);
-        posts = control.getPhotoPosts(0,10,postConfig);
+        posts = control.getPhotoPosts(0,postNumber,postConfig);
         update();
     }
 
@@ -122,14 +123,20 @@
         update();
     }
 
-    function likePhotoPost(id, postConfig){
+    function likePhotoPost(id, postConfig, postNumber){
         control.likePhotoPost(id,control.userName);
-        posts = control.getPhotoPosts(0,10,postConfig);
+        posts = control.getPhotoPosts(0,postNumber,postConfig);
         update();
     }
 
     function addHashtag(id, hashtag){
         control.addHashtag(id, hashtag);
+        posts = control.getPhotoPosts();
+        update();
+    }
+
+    function deleteHashtag(id){
+        control.deleteHashtag(id);
         posts = control.getPhotoPosts();
         update();
     }

@@ -4,6 +4,7 @@
     document.getElementById("buttonAddPhotoPost").addEventListener("click", addPhotoPost);
     document.getElementById("buttonLoadPhoto").addEventListener("click",loadPhoto);
     document.getElementById("addNewHashtag").addEventListener("click", addNewHashtag);
+    document.getElementById("deleteNewHashtag").addEventListener("click", deleteNewHashtag);
     document.getElementById("buttonSubmitPhotoPost").addEventListener("click", submitPhotoPost);
 
     function addPhotoPost(){
@@ -36,6 +37,13 @@
         newPost.hashtags.push(hashtag);
         document.getElementById("newHashtags").innerText += " " + hashtag;
     }
+    function deleteNewHashtag(){///////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        document.getElementById("newHashtags").innerText ="";
+        newPost.hashtags.splice(newPost.hashtags.length-1,1);
+        for (var i=0;i<newPost.hashtags.length;i++){
+            document.getElementById("newHashtags").innerText += " " + newPost.hashtags[i];
+        }
+    }
 
     function submitPhotoPost(){
         if (!control.validatePhotoPost(newPost)){
@@ -45,7 +53,7 @@
         }
         else{
             newPost.description = document.getElementById("newDescription").value;
-            module.deletePhotoPost(newPost.id);
+            module.deletePhotoPost(newPost.id, postConfig);
             var post = Object.assign({},newPost);
             post.id = (control.posts.length + 1).toString();
             module.addPhotoPost(post, postConfig);

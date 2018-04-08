@@ -30,6 +30,7 @@
             module.showPhotoPosts();
         }
         else {
+            postNumber = 10;
             module.showPhotoPosts(0, postNumber, postConfig);
             listenerAdd.setPostConfig(postConfig);
         }
@@ -53,17 +54,17 @@
         switch(target.id){
             case "buttonLike":{
                 id = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                module.likePhotoPost(id, postConfig);
+                module.likePhotoPost(id, postConfig, postNumber);
                 break;
             }
             case "iconLike":{
                 id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                module.likePhotoPost(id, postConfig);
+                module.likePhotoPost(id, postConfig, postNumber);
                 break;
             }
             case "iconNoLike":{
                 id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                module.likePhotoPost(id, postConfig);
+                module.likePhotoPost(id, postConfig, postNumber);
                 break;
             }
             case "buttonEdit":{
@@ -75,14 +76,14 @@
             case "buttonDelete":{
                 id = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
                 if (window.confirm("Are you sure to delete post? ")) {
-                    module.deletePhotoPost(id, postConfig);
+                    module.deletePhotoPost(id, postConfig, postNumber);
                 }
                 break;
             }
         }
         if (target.parentNode.id==="iconLike"){
             id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-            module.likePhotoPost(id, postConfig);
+            module.likePhotoPost(id, postConfig, postNumber);
         }
     }
 
