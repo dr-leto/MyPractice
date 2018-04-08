@@ -105,7 +105,7 @@
             active: true,
             id: "11",
             description: "My usual morning wood",
-            date: new Date("2018","2","11","4","19"),
+            date: new Date("2018","2","12","4","19"),
             author: "Bear_Grylls",
             photoLink: "../images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
@@ -334,7 +334,8 @@
             }
             if (checkDate(filter)){
                 newPosts = newPosts.filter(function(obj){
-                    return ((obj.date.getMonth()===filter.date.getMonth())&&(obj.date.getDate()===filter.date.getDate()));
+                    var date = new Date(obj.date);
+                    return ((date.getMonth()===filter.date.getMonth())&&(date.getDate()===filter.date.getDate()));
                 });
             }
             var tempPosts = [];
@@ -402,6 +403,13 @@
         post.hashtags.push(hashtag);
         saveChanges();
     }
+    function deleteHashtag(id){
+        var post = getPhotoPost(id);
+        if (post.hashtags.length!==0) {
+            post.hashtags.splice(post.hashtags.length-1,1);
+        }
+        saveChanges();
+    }
 
     return{
         getPhotoPost: getPhotoPost,
@@ -414,6 +422,7 @@
         likePhotoPost: likePhotoPost,
         getHashtags: getHashtags,
         addHashtag: addHashtag,
+        deleteHashtag: deleteHashtag,
         saveChanges: saveChanges,
         username: userName,
         posts: posts
