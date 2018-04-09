@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <script defer src ="controller.js"></script>
+    <script defer src ="wrapper.js"></script>
+    <script defer src ="listenMain.js"></script>
+    <script defer src ="listenAdd.js"></script>
+    <script defer src="fontawesome-free-5.0.6/on-server/js/fontawesome-all.js"></script>
+    <title>Travel&Share</title>
+</head>
+
+<body id = "body">
+<div class = "divHat">
+    <header>
+        <p class = "header">Travel&Share<p>
+        <nav>
+            <button id = "displayFilter" class = "buttonHead">
+                Filter by...
+            </button>
+            <i id = "iconAddPhoto" class="far fa-image" style = "display:none"></i>
+            <button id ="buttonAddPhotoPost" class = "buttonHead" style = "display:none">
+                Add photo
+            </button>
+            <p id ="name" class = "nameHead"> </p>
+            <button id = "buttonLogout" class="buttonHead" style =" margin-right:0 ;display:none">
+                Log out
+            </button>
+            <button id ="buttonLogin" class="buttonHead">
+                Log in
+            </button>
+        </nav>
+    </header>
+    <div class="divBottomHelper"></div>
+</div>
+
+<aside id = "filter" class = "asideFilter">
+    <div>
+        <div class = "divFilterElement">
+            <input id = "hashtagFilter" class = "filterText" list ="optionHashtags" type = "text" value = "#">
+            <datalist id="optionHashtags">
+                <option value="#niceweather">
+                <option value="#lovenature">
+                <option value="#travelling">
+                <option value="#goodtime">
+                <option value="#young&free">
+            </datalist>
+            <input id = "checkHashtagFilter" class = "checkbox" type = "checkbox">
+        </div>
+        <div class = "divFilterElement">
+            <input id = "dateFilter" class = "filterText" type = "date" name = "dateFilter" >
+            <input id = "checkDateFilter" class = "checkbox" type = "checkbox" >
+        </div>
+        <div class = "divFilterElement">
+            <input id = "nameFilter" class = "filterText" list="optionNames" type = "text">
+            <datalist id="optionNames"></datalist>
+            <input id ="checkNameFilter" class = "checkbox" type = "checkbox">
+        </div>
+        <div class = "divButtonFilter">
+            <input id ="buttonSubmitFilter" class = "buttonSubmit" type = "submit" value = "Submit">
+        </div>
+    </div>
+</aside>
+
+<article id ="templatePost" class = "post">
+    <div align="center">
+        <section>
+            <div class = "divPost">
+                <div class = "divNamePost"></div>
+                <div class = "divDescriptionPost"></div>
+                <div class = "divDatePost"></div>
+                <figure class = "figureImage">
+                    <img src = "images/Bear1.jpg" alt = "Bear_Grylls" class = "image">
+                </figure>
+                <div class ="postElement">
+                    <button id = "buttonLike" class = "buttonLike">
+                        <i id = "iconLike" class="fas fa-heart" style = "display:none"></i>
+                        <i id = "iconNoLike" class="far fa-heart"></i>
+                    </button>
+                    <p class = "numberLike"></p>
+                    <button id = "buttonEdit" class = "buttonEdit">
+                        edit
+                    </button>
+                    <button id ="buttonDelete" class = "buttonDelete">
+                        delete
+                    </button>
+                    <div class = "divHashtags">
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </section>
+    </div>
+</article>
+
+<div id = "divMain" class = "divMain">
+
+</div>
+
+<div align = center class = "divButtonLoadMore">
+<button id = "buttonLoadMore" class = "buttonLoadMore">
+    Load more photos
+</button>
+</div>
+
+<footer>
+    <div class = "divFooter">
+        <address>
+            <p class = "footerText">Designed by Kurch Dmitry, 2course 2group FAMCS BSU fpm.kurch@bsu.by</p>
+        </address>
+        <p class = "footerText">Travel&Share 26.02.2018</p>
+        <p class = "footerText">All rights reserved</p>
+    </div>
+</footer>
+
+<div id = "modalWindow" class = "modalWindow">
+        <article>
+                <section>
+                    <div align = "center">
+                    <div class = "divAddPost">
+                        <div id = "newPostAuthor" class = "divNamePost">
+                        </div>
+                        <div class = "divDescriptionPost">
+                            <div>
+                                <input id ="newDescription" class = "filterText" type = "text" value = "Add description here..." onfocus="if (this.value === 'Add description here...') {this.value=''}" >
+                            </div>
+                        </div>
+                        <div style = "float:right">
+                            <input id = "newPhotoURL" class = "filterText" type = "text" value = "URL" onfocus="if (this.value === 'URL') {this.value=''}" >
+                        </div>
+                        <button id = "buttonLoadPhoto" class = "buttonLoadPhoto">
+                            Load new photo
+                        </button>
+                        <figure class = "figureImage">
+                            <img id = "newImage" src = "images/Drag&drop.jpg" class = "image">
+                        </figure>
+                        <div class ="postElement">
+                            <button id = "deleteNewHashtag" class = "buttonDelete" style = "display:block">
+                                Delete
+                            </button>
+                            <button id = "addNewHashtag" class = "buttonDelete" style = "display:block">
+                                Add
+                            </button>
+                            <input id = "newHashtag" class = "filterText" list ="optionHashtags" type = "text" name = "hashtagFilter" value = "#" style = "float:right; width:10vw;">
+                            <div id = "newHashtags" class = "divHashtags">
+                                #myhashtag
+                                #wow
+                                #cool
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                        <button id = "buttonSubmitPhotoPost" class = "buttonSubmit" style = "margin-top:3vh">
+                            Submit
+                        </button>
+                        <div style="clear:both"></div>
+                    </div>
+                    </div>
+                </section>
+        </article>
+
+</div>
+</body>
+</html>

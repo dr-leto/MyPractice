@@ -1,0 +1,355 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.post{
+    display: none;
+}
+
+.divHat{
+    position:fixed;
+    z-index:2;
+    width:90%;
+    top:0;
+    padding-left: 10%;
+    background-color:white;
+    border-bottom: solid 1px rgba(0,0,0,0.3);
+}
+
+.divBottomHelper{
+    clear:both;
+}
+
+.header{
+    margin-right:5vw;
+    margin-top:0;
+    margin-bottom:0;
+    padding:0;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5vw;
+    float:left;
+}
+
+.buttonHead{
+    margin-top:1.3vh;
+    margin-right:5vw;
+    font-size: 2vw;
+    outline:none;
+    font-family: 'Patrick Hand', cursive;
+    color:rgba(0,0,0,0.3);
+    background-color: white;
+    border: 2px solid;
+    border-radius:10px ;
+    border-color: rgba(0,0,0,0.3);
+    transition-duration: 0.5s;
+    float:left;
+}
+.buttonHead:hover{
+    background-color: rgba(0,0,0,0.13);
+    color: white;
+}
+
+.fa-image{
+    float:left;
+    font-size:6vh;
+    margin-top:1vw;
+    margin-right:0.5vw;
+}
+.nameHead{
+    margin-top:2.5vh;
+    margin-right:0.5vw;
+    float:left;
+    font-family: 'Rancho', cursive;
+    font-size:2vw;
+}
+
+.asideFilter{
+    display: none;
+    position:fixed;
+    z-index:3;
+    background-color:white;
+    left:27%;
+    top:11.5vh;
+    width: 20%;
+    margin: 1.5%;
+    border: solid 3px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+.divFilterElement{
+    border-bottom: solid 3px rgba(0,0,0,0.5);
+    padding: 5px;
+}
+
+.filterText{
+    border: 1px solid rgba(0,0,0,0.5);
+    outline:none;
+    font-size: 3vh;
+    font-family: 'Open Sans Condensed', sans-serif;
+    width: 13vw;
+    display: block;
+    box-sizing: border-box;
+    padding: 0.3vh;
+    border-radius: 60px;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    float:left;
+    margin-right:1vw;
+}
+
+.checkbox{
+    width: 2.5vw;
+    height: 5vh;
+    display: block;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.divButtonFilter{
+    padding: 3px;
+    text-align:center;
+}
+
+.buttonSubmit{
+    outline:none;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 1.5vw;
+    color : rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:7vw;
+    height:2.5vw;
+}
+.buttonSubmit:active{
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+    border-color:black;
+}
+
+.divMain{
+    position: relative;
+    margin-top:4%;
+    padding:1%;
+    background-color: rgba(201,201,201,0.13);
+}
+
+.divPost{
+    background-color:white;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+    margin: 5%;
+    height:50%;
+    width:50%;
+}
+
+.divNamePost{
+    text-align:left;
+    margin :3px;
+    font-family: 'Rancho', cursive;
+    font-size:4vh;
+    height:5vh;
+}
+
+.divDescriptionPost{
+    margin: 3px;
+    float:left;
+    font-family: 'Indie Flower', cursive;
+    font-size:3vh;
+}
+
+.divDatePost{
+    margin:3px;
+    float:right;
+    font-family: 'Indie Flower', cursive;
+    font-size:3vh;
+}
+
+.figureImage{
+    height: 100%;
+    width: 100%;
+    margin:0;
+}
+
+.image{
+    height: 100%;
+    width:100%;
+}
+
+.buttonLike{
+    outline:none;
+    float:left;
+    background-color: white;
+    border-radius: 30px;
+}
+.fa-heart{
+    font-size:4vh;
+    color: rgba(25,5,115,0.99);
+}
+
+.numberLike{
+    float:left;
+    margin-right:1.5vw;
+    margin-top:0;
+    margin-bottom:0;
+    font-size:4vh;
+}
+
+.buttonEdit{
+    outline:none;
+    display: none;
+    float:right;
+    margin-right:5px;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 1.5vw;
+    color :rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:6vw;
+    height:2vw;
+}
+.buttonEdit:active{
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+    border-color:black;
+}
+
+.buttonDelete{
+    outline:none;
+    display: none;
+    float:right;
+    margin-right:5px;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 1.5vw;
+    color :rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:6vw;
+    height:2vw;
+}
+.buttonDelete:active{
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+    border-color:black;
+}
+
+.divHashtags{
+    float:left;
+    max-width: 60%;
+    margin-right:6px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: rgba(0,90,255,0.95);
+    font-size:1.3vw;
+}
+
+.buttonLoadMore{
+    outline:none;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 2vw;
+    color : rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:20vw;
+    height:3vw;
+}
+.buttonLoadMore:active{
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+    border-color:black;
+}
+.divButtonLoadMore{
+    background-color: rgba(201,201,201,0.13);
+    padding-bottom: 5vh;
+}
+
+.divFooter{
+    position:relative;
+    border-top:solid 1px;
+    background-color:gainsboro;
+    text-align:center;
+}
+
+.footerText{
+    margin:3px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1vw;
+}
+
+.modalWindow{
+    display:none;
+    position: fixed;
+    text-align: center;
+    z-index: 9;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.4);
+}
+
+.divAddPost{
+    margin:2%;
+    padding:1%;
+    background-color:white;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+    height:50%;
+    width:40%;
+}
+
+.buttonLoadPhoto{
+    outline:none;
+    float:right;
+    border : solid 2px rgba(0,0,0,0.5);
+    border-radius : 5px;
+    font-size : 1.5vw;
+    color : rgba(0,0,0,1);
+    padding : auto;
+    background-color: rgba(0,0,0,0.2);
+    width:15vw;
+    height:2.5vw;
+}
+.buttonLoadPhoto:active{
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+    border-color:black;
+}
+
+.loginBody{
+    background-color: rgba(201,201,201,0.13);
+}
+.divLoginHeader{
+    font-family: 'Rancho', cursive;
+    font-size:6vw;
+    margin-top:20vh;
+}
+.divDoubleHelpLogin{
+     width:30vw;
+ }
+.divLoginText{
+    float:left;
+    margin-right:1vw;
+    font-size: 2vw;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.divDoubleHelpError{
+    width:50vw;
+    margin-top:20vh;
+}
+.divErrorName{
+    float:left;
+    margin-left:1vw;
+    font-size: 10vw;
+    font-family: 'Patrick Hand', cursive;
+}
+.errorImage{
+    float:left;
+}
