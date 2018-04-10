@@ -12,7 +12,7 @@
             active: true,
             id: (control.posts.length + 1).toString(),
             description: "",
-            date: new Date(),
+            date: (new Date()).toString(),
             author: control.userName,
             photoLink: undefined,
             hashtags : [],
