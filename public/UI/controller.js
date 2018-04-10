@@ -312,17 +312,10 @@
         top = top || 10;
         if (filter===undefined) {
             posts.sort(comporator);
-            for (var i = skip;i<skip+top;i++) {
-                if (i < posts.length) {
-                    if (posts[i].active) {
-                        finalPosts.push(posts[i]);
-                    }
-                    else {
-                        top++;
-                    }
-                }
-            }
-            return finalPosts;
+
+            return posts.filter(function(post) {
+                return post.active;
+            }).slice(skip, top);
         }
         else
         {
@@ -349,17 +342,10 @@
                 newPosts = tempPosts;
             }
             newPosts.sort(comporator);
-            for (var i = skip;i<skip+top;i++) {
-                if (i < newPosts.length) {
-                    if (newPosts[i].active) {
-                        finalPosts.push(newPosts[i]);
-                    }
-                    else {
-                        top++;
-                    }
-                }
-            }
-            return finalPosts;
+
+            return newPosts.filter(function(post) {
+                            return post.active;
+                        }).slice(skip, top);
         }
     }
 

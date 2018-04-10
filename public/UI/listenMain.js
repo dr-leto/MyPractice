@@ -53,36 +53,32 @@
         var target = e.target;
         switch(target.id){
             case "buttonLike":{
-                id = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                id = target.closest("article").id;
                 module.likePhotoPost(id, postConfig, postNumber);
                 break;
             }
-            case "iconLike":{
-                id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                module.likePhotoPost(id, postConfig, postNumber);
-                break;
-            }
+            case "iconLike":
             case "iconNoLike":{
-                id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                id = target.closest("article").id;
                 module.likePhotoPost(id, postConfig, postNumber);
                 break;
             }
             case "buttonEdit":{
-                id = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                id = target.closest("article").id;
                 var post = control.getPhotoPost(id);
                 editPost(post);
                 break;
             }
             case "buttonDelete":{
-                id = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                id = target.closest("article").id;
                 if (window.confirm("Are you sure to delete post? ")) {
                     module.deletePhotoPost(id, postConfig, postNumber);
                 }
                 break;
             }
         }
-        if (target.parentNode.id==="iconLike"){
-            id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+        if (target.parentNode.id==="iconLike" || target.parentNode.id==="iconNoLike"){
+            id = target.closest("article").id;
             module.likePhotoPost(id, postConfig, postNumber);
         }
     }
