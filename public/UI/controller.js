@@ -5,7 +5,7 @@
             active: true,
             id: "1",
             description: "My usual morning wood",
-            date: new Date("2018","2","7","4","19"),
+            date: "2018-02-07",
             author: "Bear_Grylls",
             photoLink: "images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
@@ -15,7 +15,7 @@
             active: true,
             id: "2",
             description: "I want you to for US army",
-            date: new Date("2018","2","9","4","20"),
+            date: "2018-02-09",
             author: "Bear_Grylls",
             photoLink: "images/Bear2.jpg",
             hashtags : ["#challenge","#brave","#honor"],
@@ -25,7 +25,7 @@
             active: true,
             id: "3",
             description: "Me and ma nigga",
-            date: new Date("2018","2","8","4","21"),
+            date: "2018-02-04",
             author: "Bear_Grylls",
             photoLink: "images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -35,7 +35,7 @@
             active: true,
             id: "4",
             description: "You're not you when you are hungry",
-            date: new Date("2018","2","10","4","19"),
+            date: "2018-02-10",
             author: "Bear_Grylls",
             photoLink: "images/Bear4.jpg",
             hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
@@ -45,7 +45,7 @@
             active: true,
             id: "5",
             description: "Follow me",
-            date: new Date("2018","2","21","4","19"),
+            date: "2018-02-21",
             author: "Bear_Grylls",
             photoLink: "images/Bear5.jpg",
             hashtags : ["#flying","#socool","#airmax"],
@@ -55,7 +55,7 @@
             active: true,
             id: "6",
             description: "My usual morning wood",
-            date: new Date("2018","2","5","4","19"),
+            date: "2018-02-05",
             author: "Bear_Grylls",
             photoLink: "images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
@@ -65,7 +65,7 @@
             active: true,
             id: "7",
             description: "I want you to for US army",
-            date: new Date("2018","2","8","4","20"),
+            date: "2018-02-08",
             author: "Bear_Grylls",
             photoLink: "images/Bear2.jpg",
             hashtags : ["#challenge","#brave","#honor"],
@@ -75,7 +75,7 @@
             active: true,
             id: "8",
             description: "Me and ma nigga",
-            date: new Date("2018","2","4","4","21"),
+            date: "2018-02-04",
             author: "Bear_Grylls",
             photoLink: "images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -85,7 +85,7 @@
             active: true,
             id: "9",
             description: "You're not you when you are hungry",
-            date: new Date("2018","2","15","4","19"),
+            date: "2018-02-15",
             author: "Bear_Grylls",
             photoLink: "images/Bear4.jpg",
             hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
@@ -95,7 +95,7 @@
             active: true,
             id: "10",
             description: "Follow me",
-            date: new Date("2018","2","11","4","19"),
+            date: "2018-02-11",
             author: "Bear_Grylls",
             photoLink: "images/Bear5.jpg",
             hashtags : ["#flying","#socool","#airmax"],
@@ -105,7 +105,7 @@
             active: true,
             id: "11",
             description: "My usual morning wood",
-            date: new Date("2018","2","12","4","19"),
+            date: "2018-02-12",
             author: "Bear_Grylls",
             photoLink: "images/Bear1.jpg",
             hashtags : ["#travelling","#lovenature","#niceweather"],
@@ -115,7 +115,7 @@
             active: true,
             id: "12",
             description: "I want you to for US army",
-            date: new Date("2018","2","10","4","20"),
+            date: "2018-02-10",
             author: "Bear_Grylls",
             photoLink: "images/Bear2.jpg",
             hashtags : ["#challenge","#brave","#honor"],
@@ -125,7 +125,7 @@
             active: true,
             id: "13",
             description: "Me and ma nigga",
-            date: new Date("2018","2","9","4","21"),
+            date: "2018-02-09",
             author: "Bear_Grylls",
             photoLink: "images/Bear3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -135,7 +135,7 @@
             active: true,
             id: "14",
             description: "You're not you when you are hungry",
-            date: new Date("2018","2","8","4","19"),
+            date: "2018-02-08",
             author: "Bear_Grylls",
             photoLink: "images/Bear4.jpg",
             hashtags : ["#youmyheart","#mmmmsotasty","#delicious"],
@@ -145,7 +145,7 @@
             active: true,
             id: "15",
             description: "Follow me",
-            date: new Date("2018","2","7","4","19"),
+            date: "2018-02-07",
             author: "Bear_Grylls",
             photoLink: "images/Bear5.jpg",
             hashtags : ["#flying","#socool","#airmax"],
@@ -155,7 +155,7 @@
             active: true,
             id: "16",
             description: "My car",
-            date: new Date("2018","1","30","1","19"),
+            date: "2018-01-30",
             author: "Jeremy_Clarkson",
             photoLink: "images/Jeremy1.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -165,7 +165,7 @@
             active: true,
             id: "17",
             description: "My friend",
-            date: new Date("2018","1","13","1","19"),
+            date: "2018-01-13",
             author: "Jeremy_Clarkson",
             photoLink: "images/Jeremy2.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -175,7 +175,7 @@
             active: true,
             id: "18",
             description: "Going somewhere",
-            date: new Date("2018","1","11","1","19"),
+            date: "2018-01-11",
             author: "Jeremy_Clarkson",
             photoLink: "images/Jeremy3.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -185,7 +185,7 @@
             active: true,
             id: "19",
             description: "A flight to Russia",
-            date: new Date("2018","1","10","1","19"),
+            date: "2018-01-10",
             author: "Jeremy_Clarkson",
             photoLink: "images/Jeremy4.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -195,7 +195,7 @@
             active: true,
             id: "20",
             description: "Australia coast",
-            date: new Date("2018","1","7","1","19"),
+            date: "2018-01-07",
             author: "Jeremy_Clarkson",
             photoLink: "images/Jeremy5.jpg",
             hashtags : ["#BFF","#goodtimetogether","#hapiness"],
@@ -208,7 +208,6 @@
         localStorage.setItem("photoPosts", JSON.stringify(photoPosts));
         localStorage.setItem("user", JSON.stringify(user));
     }
-
     var posts = JSON.parse(localStorage.getItem("photoPosts"));
     var userName = JSON.parse(localStorage.getItem("user"));
 
@@ -237,7 +236,6 @@
         return (typeof post.description=="string")
     }
     function checkDate(post){
-        var temp = typeof post.date;
         return (post.date !== undefined);
     }
     function checkAuthor(post){
@@ -415,5 +413,5 @@
     }
 }());
 
-//control.posts = JSON.parse(localStorage.getItem("photoPosts"));
+//control.posts.json = JSON.parse(localStorage.getItem("photoPosts"));
 control.userName = JSON.parse(localStorage.getItem("user"));
