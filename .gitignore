@@ -3,3 +3,4 @@
 out/
 *.iml
 fontawesome-free-5.0.6/
+node_modules/
