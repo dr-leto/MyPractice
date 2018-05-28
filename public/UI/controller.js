@@ -240,7 +240,7 @@
     return (typeof post.author === 'string')
   }
   function checkPhotoLink (post) {
-    return ((post.photoLink != '') && (typeof post.photoLink === 'string'))
+    return ((post.photoLink !== '') && (typeof post.photoLink === 'string'))
   }
   function checkHashtags (post) {
     return (post.hashtags instanceof Array)

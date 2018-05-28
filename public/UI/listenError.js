@@ -1,7 +1,7 @@
-; var listenerError = (function(){
-    document.getElementById("buttonSubmitError").addEventListener("click",goMainPage);
+; var listenerError = (function () {
+  document.getElementById('buttonSubmitError').addEventListener('click', goMainPage)
 
-    function goMainPage(){
-        window.location = "index.html";
-    }
-}());
+  function goMainPage () {
+    window.location = 'index.html'
+  }
+}())
