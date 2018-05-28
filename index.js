@@ -5,6 +5,20 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var app = express()
 
+var cookieParser = require('cookie-parser')
+var session = require('express-session')
+var passport = require('./passport')
+
+app.use(cookieParser())
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(bodyParser.json())
 app.use('/static', express.static(path.join(__dirname, '/public')))
 app.use('/image', express.static(path.join(__dirname, '/public/UI/images')))
@@ -85,7 +99,6 @@ app.post('/getPosts', (request, response) => {
   var posts = JSON.parse(fs.readFileSync(path.join(__dirname, 'server/data/posts.json')))
   var filter = request.body
 
-  var finalPosts = []
   var skip = 0
   var top = 10
   if (filter === undefined) {
@@ -221,7 +234,7 @@ function checkAuthor (post) {
   return (typeof post.author === 'string')
 }
 function checkPhotoLink (post) {
-  return ((post.photoLink != '') && (typeof post.photoLink === 'string'))
+  return ((post.photoLink !== '') && (typeof post.photoLink === 'string'))
 }
 function checkHashtags (post) {
   return (post.hashtags instanceof Array)
@@ -238,6 +251,26 @@ function validatePhotoPost (post) {
         checkHashtags(post) &&
         checkLikes(post)
 }
+
+app.post('/login', passport.authenticate('local'), (req, res) => {
+  res.send(req.user.username)
+})
+
+function ensureAuthenticated (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.status(404).end()
+}
+
+app.get('/login', ensureAuthenticated, (req, res) => {
+  res.send(req.user.username)
+})
+
+app.get('/logout', (req, res) => {
+  req.logout()
+  res.end()
+})
 
 app.listen(3000, 'localhost', function () {
   console.log('Server is working in port 3000!')
